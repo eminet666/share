@@ -1,11 +1,3 @@
-function getPeriode(ref) {
-    var periode = 0;
-    for (i = 1 ; i < danse.length ; i++) {
-          if(ref >= danse[i].debut) periode++;
-    }
-    return periode;
-}
-
 // CHARGEMENT MODELE
 AFRAME.registerComponent('model_loaded', {
     init: function() {
@@ -48,15 +40,11 @@ AFRAME.registerComponent('delay_ready', {
       var delai = this.data.delai;
       const son = document.getElementById(this.data.audio);
       son.addEventListener('playing', (event) => {
-          playing = true;
           setTimeout(function() {
-              var animdata = "clip: ready; crossFadeDuration: 0.3; repetitions: 1; duration: 1;"
-              console.log(el.id+"_ animdata"+animdata);
+              var initdata = "clip: ready; clampWhenFinished: true; repetitions: 1; duration: 2;"
               el.removeAttribute("animation-mixer");
-              el.setAttribute("animation-mixer", animdata);
-              pas_current = "ready";
-              var pas = document.querySelector('#pas');
-              pas.innerHTML = animdata;
+              el.setAttribute("animation-mixer", initdata);
+              danseurs.push(el.id);
           }, delai);
       });
   }
@@ -68,14 +56,24 @@ AFRAME.registerComponent('sirtaki', {
         el.addEventListener('animation-finished', () => {
             var clip = Math.floor((Math.random() * 5) + 1 );
             var repet = Math.floor((Math.random() * 3) + 1 );
-            var animdata = "clip: pas_0"+clip+"; crossFadeDuration: 0.3; repetitions: 1; ";
+            animdata = "clip: pas_0"+clip+"; crossFadeDuration: 0.3; repetitions: 1; ";
             var speed = danse[periode].vitesse;
             animdata = animdata + "duration: "+(duree_pas[clip]/speed).toFixed(1)+";"
             console.log("animdata : "+animdata);
-            el.removeAttribute("animation-mixer");
-            el.setAttribute("animation-mixer", animdata);
+            // el.removeAttribute("animation-mixer");
+            // el.setAttribute("animation-mixer", animdata);
             var pas = document.querySelector('#pas');
             pas.innerHTML = animdata;
+            updateModels();
         });
     }
 });
+
+function updateModels() {
+    var cible;
+    for(i = 0; i < danseurs.length; i++) {
+        cible = document.getElementById(danseurs[i]);
+        cible.removeAttribute("animation-mixer");
+        cible.setAttribute("animation-mixer", animdata);
+    }
+}

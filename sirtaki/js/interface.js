@@ -1,4 +1,4 @@
-var b = document.querySelector('#contexte');
+var b = document.querySelector('#bouton');
 var son = document.querySelector('#zorba');
 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -26,11 +26,9 @@ function resumeAudio() {
     //document.removeEventListener("click", resumeAudio);
 }
 b.onclick = resumeAudio;
-
 // infos audio
 var info = document.querySelector('#info');
 var current = document.querySelector('#current');
-var goto = document.querySelector('#idInput');
 
 son.ontimeupdate = function() {tps_ecoule()};
 function tps_ecoule() {
@@ -38,4 +36,12 @@ function tps_ecoule() {
   current.innerHTML = "temps écoulé : "+courant+"s";
   info.innerHTML = "durée totale : "+son.duration.toFixed(2)+"s";
   periode = getPeriode(courant);
+}
+
+function getPeriode(ref) {
+    var periode = 0;
+    for (i = 1 ; i < danse.length ; i++) {
+          if(ref >= danse[i].debut) periode++;
+    }
+    return periode;
 }

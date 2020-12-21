@@ -11,8 +11,11 @@
 		<script src="../js/components.js"></script>
 
 		<script>
+        // donnees programme
 			const pas = "pas_0";
 			var periode = 0;
+			var animdata ="";
+	        let danseurs = [];
 
 			// DONNEES CHOREGRAPHIE
 			// durée en seconde de chaque pas à vitesse normale :
@@ -45,13 +48,13 @@
 
 		<a-scene>
 			<a-assets>
-    			<a-asset-item id="glbModel" src="../assets/models/antoine_hugo.glb"></a-asset-item>
+    			<a-asset-item id="glbAntoine" src="../assets/models/antoine_hugo.glb"></a-asset-item>
                 <audio id="zorba" src="../assets/audio/zorba_64_light.mp3" preload="auto" loop="false"></audio>
 				<img id="lieu" crossorigin="anonymous" src="../assets/view360/ruedutotparis_light.jpg" />
             </a-assets>
 
-			<a-entity  id ="model3D" gltf-model="#glbModel"
-					   position="-1 0 -3.5" rotation="90 90 90" scale="0.7 0.7 0.7"
+			<a-entity  id ="model3D" gltf-model="#glbAntoine"
+					   position="-1 0 -3.5" rotation="90 90 90" scale="0.9 0.9 0.9"
 					   model_loaded
 					   shadow="cast:true; receive:true"
 					   animation-mixer="clip: idle; clampWhenFinished: true; repetitions: 1; duration: 2; "
@@ -70,7 +73,7 @@
     	</a-scene>
 
 		<div id="musique">
-		  <button id="contexte">SON ON</button>
+		  <button id="bouton">SON ON</button>
 		  <p id="info"></p>
 		  <p id="current"></p>
 		  <p id="pas"></p>
