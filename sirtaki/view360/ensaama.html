@@ -7,13 +7,15 @@
 
 		<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 		<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-		<script src="https://unpkg.com/aframe-webcentric-component@0.0.2/dist/aframe-webcentric-component.min.js"></script>
         <script src="../js/unlock_audio_ios.js"></script>
 		<script src="../js/components.js"></script>
 
 		<script>
-			const pas = "pas_0";
-			var periode = 0;
+			// donnees programme
+	        const pas = "pas_0";
+	        var periode = 0;
+	        var animdata ="";
+	        let danseurs = [];
 
 			// DONNEES CHOREGRAPHIE
 			// durée en seconde de chaque pas à vitesse normale :
@@ -47,22 +49,28 @@
 			<a-assets>
     			<a-asset-item id="glbModel" src="../assets/models/antoine_hugo.glb"></a-asset-item>
                 <audio id="zorba" src="../assets/audio/zorba_64_light.mp3" preload="auto" loop="false"></audio>
-				<img id="lieu" crossorigin="anonymous" src="../assets/view360/ensaama_light.jpg" />
+				<img id="lieu" crossorigin="anonymous" src="../assets/view360/ensaama_light_num.jpg" />
+				<a-mixin id="commun" model_loaded shadow="cast:true; receive:true"
+	                     animation-mixer="clip: idle; clampWhenFinished: true; repetitions: 1; duration: 2; "
+	                     delay_ready="audio: zorba; delai: 5000;" scale="0.7 0.7 0.7">
+	            </a-mixin>
             </a-assets>
 
-			<a-entity  id ="model3D" gltf-model="#glbModel"
-					   position="-3 0 -4" rotation="90 120 90" scale="0.7 0.7 0.7"
-					   model_loaded
-					   shadow="cast:true; receive:true"
-					   animation-mixer="clip: idle; clampWhenFinished: true; repetitions: 1; duration: 2; "
-					   delay_ready="audio: zorba; delai: 5000;"
-					   sirtaki
-					   >
+			<a-entity  id ="danseur1" gltf-model="#glbModel" mixin="commun"
+					   position="1 0 -3.5" rotation="90 120 90"
+					   sirtaki>
             </a-entity>
-			<a-plane position="-3 0 -4" rotation="-90 0 0"
-					 width="8" height="8" color="#CCCCCC"
+			<a-entity  id ="danseur2" gltf-model="#glbModel" mixin="commun"
+					   position="-1 0 -3.5" rotation="90 120 90">
+            </a-entity>
+			<a-entity  id ="danseur3" gltf-model="#glbModel" mixin="commun"
+					   position="-3 0 -3.5" rotation="90 120 90">
+            </a-entity>
+
+			<a-plane position="-5 0 -8" rotation="-90 0 0"
+					 width="16" height="16" color="#CCCCCC"
 					 shadow="receive: true"
-					 shadow-material="opacite: 0.9">
+					 shadow-material="opacite: 0.7">
 			</a-plane>
 
         <a-sky src="#lieu" rotation="0 0 0"></a-sky>
@@ -70,7 +78,7 @@
     	</a-scene>
 
 		<div id="musique">
-		  <button id="contexte">SON ON</button>
+		  <button id="bouton">SON ON</button>
 		  <p id="info"></p>
 		  <p id="current"></p>
 		  <p id="pas"></p>
