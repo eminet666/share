@@ -6,6 +6,7 @@
 * [ensaama](https://eminet666.github.io/share/sirtaki/view360/ensaama.html)
 * [cuffy](https://eminet666.github.io/share/sirtaki/view360/cuffy.html)
 * [foch](https://eminet666.github.io/share/sirtaki/view360/foch.html)
+* [hyeres](https://eminet666.github.io/share/sirtaki/view360/hyeres.html)
 * [libert](https://eminet666.github.io/share/sirtaki/view360/libert.html)
 * [marseillan](https://eminet666.github.io/share/sirtaki/view360/marseillan.html)
 * [meudon](https://eminet666.github.io/share/sirtaki/view360/meudon.html)
