@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
+
+        <style>
+            * { font-family: sans-serif;}
+            h1 { background-color: white; text-align: right;
+                 position: absolute; top: 10px; right: 10px;
+                 padding-left: 5px; padding-right: 5px;
+             }
+            #formulaire{
+                position: absolute; bottom: 10px; right: 10px;
+                display: flex; flex-direction: row-reverse;
+                border: dotted black 2px;
+            }
+            input { width: 35px;}
+            label { font-weight: 550; margin-right: 5px; margin-left: 20px;}
+            button { font-weight: 550; margin-right: 5px; margin-left: 20px; font-size: 1em;}
+        </style>
+
+    </head>
+
+    <body onload="updatebgcolor('#CCC');">
+        <h1 id="info"> entrez votre date de naissance</h1>
+
+        <div id="formulaire">
+            <button type="button" id="bouton">ok</button>
+            <input type="number" id="annee" min="0" max="99">
+            <label for="annee">année (aa) </label>
+            <input type="number" id="mois" min="1" max="12">
+            <label for="mois">mois (mm) </label>
+           <input type="number" id="jour" min="1" max="31">
+           <label for="jour">jour (jj) </label>
+
+        </div>
+
+        <script>
+            let jour = document.querySelector('#jour');
+            let mois = document.querySelector('#mois');
+            let annee = document.querySelector('#annee');
+            let bouton = document.querySelector('#bouton');
+            let day = '', month = '', year = '';
+
+            jour.addEventListener('change', (event) => {
+                day = event.target.value;
+            });
+            mois.addEventListener('change', (event) => {
+                month = event.target.value;
+            });
+            annee.addEventListener('change', (event) => {
+                year = event.target.value;
+            });
+            bouton.addEventListener('click', (event) => {
+                getcolor();
+            });
+
+            function getcolor() {
+                if(day !== '' && month !== '' && year !== ''){
+                    console.log("jj="+day+ " mm="+month+" aa="+year);
+                    let rouge = mapR(day);
+                    let vert = mapV(month);
+                    let bleu = mapB(year);
+                    console.log("R="+rouge+ " V="+vert+" B="+bleu);
+                    rouge = rouge.toString(16);
+                    vert = vert.toString(16);
+                    bleu = bleu.toString(16);
+                    if(rouge < 10) rouge = "0"+rouge;
+                    if(vert < 10)  vert = "0"+vert;
+                    if(bleu < 10)  bleu = "0"+bleu;
+                    console.log("R=#"+rouge+ " V=#"+vert+" B=#"+bleu);
+                    let couleur = "#"+rouge+vert+bleu.toUpperCase();
+                    console.log(couleur);
+                    updatebgcolor(couleur);
+                    updateinfo(couleur);
+                }
+            }
+
+            function mapR(data) {
+                let res;
+                switch(data) {
+                    case 4 :
+                    case 6 :
+                    case 9 :
+                    case 11 : res = Math.round(data*255/30);
+                        break;
+                    case 2 : res = Math.round(data*255/28);
+                        break;
+                    default: res = Math.round(data*255/31);
+                }
+                return res;
+            }
+            function mapV(data) {
+                let res = Math.round(data*255/12);
+                return res;
+            }
+            function mapB(data) {
+                let res = Math.round(data*255/100)-1;
+                return res;
+            }
+
+            function updatebgcolor(color) {
+                document.body.style.backgroundColor = color;
+                initvalues();
+            }
+            function updateinfo(color) {
+                let info = "votre couleur<br>";
+                info = info +color+ "(hex)<br>";
+                info = info + hexToRgb(color.substring(1))+" (rvb)";
+                document.getElementById("info").innerHTML = info;
+
+                initvalues();
+            }
+
+            function initvalues() {
+                let jour = document.querySelector('#jour');
+                let mois = document.querySelector('#mois');
+                let annee = document.querySelector('#annee');
+                day = ''; month = ''; year = '';
+                jour.value = ''; mois.value = ''; annee.value = '';
+            }
+
+            function hexToRgb(hex) {
+                var bigint = parseInt(hex, 16);
+                var r = (bigint >> 16) & 255;
+                var g = (bigint >> 8) & 255;
+                var b = bigint & 255;
+
+                return r + "," + g + "," + b;
+            }
+
+        </script>
+    </body>
+
+</html>
