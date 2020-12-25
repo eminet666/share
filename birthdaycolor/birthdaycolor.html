@@ -8,7 +8,7 @@
         <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
 
         <style>
-            * { font-family: sans-serif;}
+            * { font-family: sans-serif; margin: 0;}
             h2 { background-color: white; text-align: right;
                  position: absolute; top: 10px; right: 10px;
                  padding-left: 5px; padding-right: 5px;
@@ -18,7 +18,7 @@
                 display: flex; flex-direction: row-reverse;
             }
             input { width: 105px; font-weight: 550; background-color: white; border: none;}
-            button { font-weight: 550; margin-right: 5px; margin-left: 10px; font-size: 1em;
+            button { font-weight: 550; margin-left: 10px; font-size: 1em;
                 border: none; background-color: #FFF;}
         </style>
 
@@ -64,8 +64,9 @@
                     console.log("R=#"+rouge+ " V=#"+vert+" B=#"+bleu);
                     let couleur = "#"+rouge+vert+bleu.toUpperCase();
                     console.log(couleur);
-                    updatebgcolor(couleur);
                     updateinfo(couleur);
+                    updatebgcolor(couleur);
+                    initvalues();
                 }
             }
 
@@ -94,15 +95,15 @@
 
             function updatebgcolor(color) {
                 document.body.style.backgroundColor = color;
-                initvalues();
             }
             function updateinfo(color) {
-                let info = "votre couleur<br>";
+                let jour_txt = jour(day);
+                let mois_txt = mois(month);
+                let annee_txt = annee(year)+""+year;
+                let info = jour_txt+" "+mois_txt+" "+annee_txt+"<br>";
                 info = info +color+ "(hex)<br>";
                 info = info + hexToRgb(color.substring(1))+" (rvb)";
                 document.getElementById("info").innerHTML = info;
-
-                initvalues();
             }
 
             function initvalues() {
@@ -121,6 +122,40 @@
 
                 return r + "," + g + "," + b;
             }
+
+            function jour(day){
+                let res;
+                if(day.substring(0,1) == '0') res = day.substring(1);
+                else res = day;
+                return res;
+                }
+
+            function mois(month){
+                let res;
+                switch(month){
+                    case "01": res="janvier";break;
+                    case "02": res="février";break;
+                    case "03": res="mars";break;
+                    case "04": res="avril";break;
+                    case "05": res="mai";break;
+                    case "06": res="juin";break;
+                    case "07": res="juillet";break;
+                    case "08": res="août";break;
+                    case "09": res="septembre";break;
+                    case "10": res="octobre";break;
+                    case "11": res="novembre";break;
+                    case "12": res="décembre";break;
+                    défault: res="erreur";
+                }
+                return res;
+            }
+
+            function annee(year){
+                let res;
+                if(year > 20) { res = 19;}
+                else { res = 20; }
+                return res;
+                }
 
         </script>
     </body>
