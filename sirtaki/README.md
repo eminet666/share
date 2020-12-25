@@ -7,6 +7,7 @@
 * [chrissi](https://eminet666.github.io/share/sirtaki/view360/chrissi.html)
 * [cuffy](https://eminet666.github.io/share/sirtaki/view360/cuffy.html)
 * [foch](https://eminet666.github.io/share/sirtaki/view360/foch.html)
+* [ioannis](https://eminet666.github.io/share/sirtaki/view360/ioannis.html)
 * [hyeres](https://eminet666.github.io/share/sirtaki/view360/hyeres.html)
 * [libert](https://eminet666.github.io/share/sirtaki/view360/libert.html)
 * [marseillan](https://eminet666.github.io/share/sirtaki/view360/marseillan.html)
