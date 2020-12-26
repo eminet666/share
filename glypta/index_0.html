@@ -38,9 +38,10 @@
 
     <a-scene background="color: #5280A7" gltf-model="dracoDecoderPath: ./js/draco/;">
         <a-assets>
-            <a-asset-item id="aphrodite" src="./assets/models/aphrodite_draco.glb"></a-asset-item>
-            <a-asset-item id="artemis" src="./assets/models/artemis_draco.glb"></a-asset-item>
-            <a-asset-item id="capitoline" src="./assets/models/capitoline_draco.glb"></a-asset-item>
+            <a-asset-item id="aphrodite" src="./assets/models/aphrodite.glb"></a-asset-item>
+            <a-asset-item id="artemis" src="./assets/models/artemis.glb"></a-asset-item>
+            <a-asset-item id="capitoline" src="./assets/models/capitoline.glb"></a-asset-item>
+            <a-asset-item id="callypige" src="./assets/models/callypige.glb"></a-asset-item>
             <a-mixin id="commun" model_loaded shadow="cast:true; receive:true"
             >
             </a-mixin>
@@ -52,7 +53,7 @@
 
         <!-- MODELES 3D -->
         <a-entity  id ="aphrodite" gltf-model="#aphrodite" mixin="commun"
-                   position="0 0 -2" rotation="0 0 0" modify-materials>
+                   position="0 0 -3" rotation="0 0 0" modify-materials>
         </a-entity>
 
         <a-entity  id ="artemis" gltf-model="#artemis" mixin="commun"
@@ -63,8 +64,12 @@
                    position="1 0 -2" rotation="0 180 0" modify-materials>
         </a-entity>
 
-        <a-plane position="0 0 -4" rotation="-90 0 0"
-                 width="8" height="8" color="#CCCCCC"
+        <a-entity  id ="callypige" gltf-model="#callypige" mixin="commun"
+                   position="0 0 3" rotation="0 180 0" modify-materials>
+        </a-entity>
+
+        <a-plane position="0 0 0" rotation="-90 0 0"
+                 width="20" height="20" color="#CCCCCC"
                  shadow="receive: true" shadow-material="opacite: 0.3">
         </a-plane>
         <a-plane position="0 0 -4" rotation="-90 0 0"
