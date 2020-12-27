@@ -10,4 +10,5 @@
 # glypothèque
 * [static](https://eminet666.github.io/share/glypta/index_0_static.html)
 * [dynamic_oculus](https://eminet666.github.io/share/glypta/index_1_move_oculus.html)
-* [dynamic_mobile](https://eminet666.github.io/share/glypta/index_1_move_mobile.html)
+* [dynamic_joystick](https://eminet666.github.io/share/glypta/index_1_move_joystick.html)
+* [dynamic_boutons](https://eminet666.github.io/share/glypta/index_1_move_boutons.html)
