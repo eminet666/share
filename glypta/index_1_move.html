@@ -6,40 +6,39 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
+    <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
     <!-- SCRIPTS -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="./js/components.js"></script>
 
-    <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
-
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script>
-        AFRAME.registerComponent('gauche', {
-            init: function()
-            {
-                const utilisateur = document.querySelector('#utilisateur');
-                const boite1 = document.querySelector('#boite1');
+    AFRAME.registerComponent('gauche', {
+        init: function()
+        {
+            const utilisateur = document.querySelector('#utilisateur');
+            const boite1 = document.querySelector('#boite1');
 
-                this.el.addEventListener("thumbstickmoved", function(event)	{
-                    AFRAME.utils.entity.setComponentProperty(boite1, 'color', 'yellow');
-                    utilisateur.object3D.position.x += event.detail.y/20;
-                    utilisateur.object3D.position.y += event.detail.x/20;
-                });
-            }
-        });
-        AFRAME.registerComponent('droite', {
-            init: function()
-            {
-                const utilisateur = document.querySelector('#utilisateur');
-                const boite3 = document.querySelector('#boite3');
+            this.el.addEventListener("thumbstickmoved", function(event)	{
+                AFRAME.utils.entity.setComponentProperty(boite1, 'color', 'yellow');
+                utilisateur.object3D.position.z -= event.detail.y/20;
+                utilisateur.object3D.position.x -= event.detail.x/20;
+            });
+        }
+    });
+    AFRAME.registerComponent('droite', {
+        init: function()
+        {
+            const utilisateur = document.querySelector('#utilisateur');
+            const boite3 = document.querySelector('#boite3');
 
-                this.el.addEventListener("thumbstickmoved", function(event)	{
-                    AFRAME.utils.entity.setComponentProperty(boite1, 'color', 'orange');
-                    utilisateur.object3D.rotation.y += event.detail.y/20;
-                });
-            }
-        });
+            this.el.addEventListener("thumbstickmoved", function(event)	{
+                AFRAME.utils.entity.setComponentProperty(boite3, 'color', 'orange');
+                utilisateur.object3D.rotation.y += event.detail.y/20;
+            });
+        }
+    });
     </script>
 
 </head>
@@ -57,8 +56,8 @@
             </a-mixin>
         </a-assets>
 
-        <a-entity id="utilisateur" position="0 0 0">
-            <a-entity camera position="0 1.5 1" look-controls></a-entity>
+        <a-entity id="utilisateur" position="0 0 0" movement-controls>
+            <a-entity camera position="0 1.7 1" look-controls></a-entity>
             <a-entity oculus-touch-controls="hand: left" gauche></a-entity>
             <a-entity oculus-touch-controls="hand: right" droite></a-entity>
             </a-entity>
