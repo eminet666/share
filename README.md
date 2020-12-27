@@ -8,4 +8,5 @@
 [teach me to dance](https://eminet666.github.io/share/sirtaki/)
 
 # glypothèque
-[test](https://eminet666.github.io/share/glypta/index_0.html)
+[static](https://eminet666.github.io/share/glypta/index_0_static.html)
+[dynamic](https://eminet666.github.io/share/glypta/index_1_move.html)
