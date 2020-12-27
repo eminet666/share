@@ -31,10 +31,8 @@
         init: function()
         {
             const utilisateur = document.querySelector('#utilisateur');
-            const boite3 = document.querySelector('#boite3');
 
             this.el.addEventListener("thumbstickmoved", function(event)	{
-                AFRAME.utils.entity.setComponentProperty(boite3, 'color', 'orange');
                 utilisateur.object3D.rotation.y += event.detail.y/20;
             });
         }
