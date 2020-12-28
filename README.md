@@ -12,3 +12,5 @@
 * [dynamic_oculus](https://eminet666.github.io/share/glypta/index_1_move_oculus.html)
 * [dynamic_joystick](https://eminet666.github.io/share/glypta/index_1_move_joystick.html)
 * [dynamic_boutons](https://eminet666.github.io/share/glypta/index_1_move_boutons.html)
+
+* [test](https://eminet666.github.io/share/glypta/index_2_color.html)
