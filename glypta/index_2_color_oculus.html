@@ -33,20 +33,29 @@
 
             this.el.addEventListener("thumbstickmoved", function(event)	{
                 utilisateur.object3D.rotation.y += event.detail.y/30;
+                    // Grab the mesh / scene.
+                    const obj = cube.getObject3D('mesh');
+                    console.log(obj);
+                    // Go over the submeshes and modify materials we want.
+                    obj.traverse(node => {
+                      if (node.name.indexOf('Cube') !== -1) {
+                        node.material.color.set('green');
+                      }
+                    });
             });
 
-            this.el.addEventListener("triggerdown", function(event)	{
-                // // Grab the mesh / scene.
-                // const obj = cube.getObject3D('mesh');
-                // console.log(obj);
-                // // Go over the submeshes and modify materials we want.
-                // obj.traverse(node => {
-                //   if (node.name.indexOf('Cube') !== -1) {
-                //     node.material.color.set('green');
-                //   }
-                // });
-                utilisateur.object3D.position.x -= event.detail.x/40;
-            });
+            // this.el.addEventListener("triggerdown", function(event)	{
+            //     // // Grab the mesh / scene.
+            //     // const obj = cube.getObject3D('mesh');
+            //     // console.log(obj);
+            //     // // Go over the submeshes and modify materials we want.
+            //     // obj.traverse(node => {
+            //     //   if (node.name.indexOf('Cube') !== -1) {
+            //     //     node.material.color.set('green');
+            //     //   }
+            //     // });
+            //     utilisateur.object3D.position.x -= event.detail.x/40;
+            // });
         }
     });
 
