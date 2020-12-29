@@ -8,6 +8,7 @@
           <script>
                     AFRAME.registerComponent('cursor-listener', {
                       init: function () {
+                            console.log(this);
                             var lastIndex = -1;
                             var COLORS = ['red', 'green', 'blue'];
                             this.el.addEventListener('click', function (evt) {

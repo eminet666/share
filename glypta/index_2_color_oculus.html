@@ -60,33 +60,7 @@
         }
     });
 
-        AFRAME.registerComponent('couleurs', {
-            init: function() {
-                let mesh = this.el.getObject3D("mesh");
-                this.el.addEventListener("raycaster-intersected", function(event) {
-                    mesh.material.color.set("red");
 
-                    // Wait for model to load.
-                    this.el.addEventListener('model-loaded', () => {
-                      // Grab the mesh / scene.
-                      const obj = this.el.getObject3D('mesh');
-                      console.log(obj);
-                      // Go over the submeshes and modify materials we want.
-                      obj.traverse(node => {
-                        if (node.name.indexOf('Cube') !== -1) {
-                          node.material.color.set('red');
-                        }
-                      });
-                    });
-
-
-                });
-
-                this.el.addEventListener("raycaster-intersected-cleared", function(event) {
-                    mesh.material.color.set("blue");
-                });
-            }
-        });
 
         AFRAME.registerComponent('modify-materials', {
             init: function () {
@@ -128,13 +102,13 @@
             <a-entity id="gauche" oculus-touch-controls="hand: left"
                       laser-controls="hand: left"
                       raycaster="objects: .collidable; showLine: true; far: 10;"
-                      line="color: CCCCCC; opacity: 1;"
+                      line="color: #CCCCCC; opacity: 1;"
                       gauche>
             </a-entity>
             <a-entity id="droite" oculus-touch-controls="hand: right"
                       laser-controls="hand: right"
                       raycaster="objects: .collidable; showLine: true; far: 10;"
-                      line="color: CCCCCC; opacity: 1;"
+                      line="color: #CCCCCC; opacity: 1;"
                       gauche>
             </a-entity>
         </a-entity>
@@ -171,7 +145,7 @@
 
         <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
                    position="0 0 -4" rotation="0 0 0"
-                   class="collidable" couleurs modify-materials>
+                   class="collidable" couleurs>
         </a-entity>
         <a-box position="-2 0.5 -3" color="blue"
             class = "collidable"

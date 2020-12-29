@@ -18,36 +18,41 @@
 
     <script>
         AFRAME.registerComponent('modify-materials', {
-          init: function () {
-            // Wait for model to load.
-            this.el.addEventListener('model-loaded', () => {
-              // Grab the mesh / scene.
-              const obj = this.el.getObject3D('mesh');
-              // Go over the submeshes and modify materials we want.
-              obj.traverse(node => {
-                if (node.name.indexOf('Cube') !== -1) {
-                  node.material.color.set('red');
-                }
-              });
-            });
-          }
+            init: function() {
+                // Wait for model to load.
+                this.el.addEventListener('model-loaded', () => {
+                    // Grab the mesh / scene.
+                    const obj = this.el.getObject3D('mesh');
+                    // Go over the submeshes and modify materials we want.
+                    obj.traverse(node => {
+                        if (node.name.indexOf('Cube') !== -1) {
+                            node.material.color.set('red');
+                        }
+                    });
+                });
+            }
         });
         AFRAME.registerComponent('couleurs', {
-          init: function () {
-            // Wait for model to load.
-            this.el.addEventListener('click', () => {
-                console.log("ici")
-            });
-          }
-        });
-        AFRAME.registerComponent('cursor-listener', {
-            init: function () {
-                 this.el.addEventListener('click', function (evt) {
-                console.log('I was clicked at: ', evt.detail.intersection.point);
-              });
+            schema: {
+              cible: {type: 'string', default: "Cube"}
+            },
+            init: function() {
+                // Wait for model to load.
+                this.el.addEventListener('click', () => {
+                        // Grab the mesh / scene.
+                        let obj = this.el.getObject3D('mesh');
+                        let cible = this.data.cible;
+                        // Go over the submeshes and modify materials we want.
+                        obj.traverse(node => {
+                            if (node.name.indexOf(cible) !== -1) {
+                                let new_color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+                                node.material.color.set(new_color);
+                            }
+                        });
+                });
             }
-          });
 
+        });
     </script>
 
 </head>
@@ -61,8 +66,7 @@
             <a-asset-item id="capitoline" src="./assets/models/capitoline.glb"></a-asset-item>
             <a-asset-item id="callypige" src="./assets/models/callypige.glb"></a-asset-item>
             <a-asset-item id="cube" src="./assets/models/cube.gltf"></a-asset-item>
-            <a-mixin id="commun" model_loaded shadow="cast:true; receive:true"
-            >
+            <a-mixin id="commun" model_loaded shadow="cast:true; receive:true">
             </a-mixin>
         </a-assets>
 
@@ -71,40 +75,37 @@
         <a-entity light="type: directional; castShadow:true; intensity: 0.5" position="-1 2 1"></a-entity> -->
 
         <!-- MODELES 3D -->
-        <a-entity  id ="aphrodite" gltf-model="#aphrodite" mixin="commun"
-                   position="0 0 -3" rotation="0 0 0">
+        <a-entity id="aphrodite" gltf-model="#aphrodite"
+                  mixin="commun" position="0 0 -3" rotation="0 0 0"
+                  couleurs="cible: Milosaphrodite">
         </a-entity>
 
-        <a-entity  id ="artemis" gltf-model="#artemis" mixin="commun"
-                   position="-1 0 -2" rotation="0 0 0">
+        <a-entity id="artemis" gltf-model="#artemis"
+                  mixin="commun" position="-1 0 -2" rotation="0 0 0"
+                  couleurs="cible: Louvre-Artemis-Diana-1">
         </a-entity>
 
-        <a-entity  id ="capitoline" gltf-model="#capitoline" mixin="commun"
-                   position="1 0 -2" rotation="0 180 0">
+        <a-entity id="capitoline" gltf-model="#capitoline"
+                  mixin="commun" position="1 0 -2" rotation="0 180 0"
+                  couleurs="cible: Louvre-Aphrodite-Du-Capitole-1">
         </a-entity>
 
-        <a-entity  id ="callypige" gltf-model="#callypige" mixin="commun"
-                   position="0 0 3" rotation="0 180 0">
+        <a-entity id="callypige" gltf-model="#callypige"
+                  mixin="commun" position="0 0 3" rotation="0 180 0"
+                  couleurs="cible: Louvre-Venus-Callipyge-Decimated-1">
         </a-entity>
 
-        <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
-                   position="0 0 -4" rotation="0 0 0" couleurs cursor-listener>
-        </a-entity>
+        <!-- <a-entity id="cube" gltf-model="#cube" mixin="commun" position="0 0 -4" rotation="0 0 0" couleurs="cible: Cube">
+        </a-entity> -->
 
-        <a-plane position="0 0 0" rotation="-90 0 0"
-                 width="10" height="10" color="#CCCCCC"
-                 shadow="receive: true" shadow-material="opacite: 0.3">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#CCCCCC" shadow="receive: true" shadow-material="opacite: 0.3">
         </a-plane>
-        <a-plane position="0 0 0" rotation="-90 0 0"
-                 width="10" height="10" color="#CCCCCC">
+        <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#CCCCCC">
         </a-plane>
 
-        <a-entity camera look-controls position="0 1.6 0">
-              <a-entity cursor="fuse: true; fuseTimeout: 500"
-                        position="0 0 -5"
-                        geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15"
-                        material="color: black; shader: flat">
-              </a-entity>
+        <a-entity camera look-controls position="0 1.7 0">
+            <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: yellow; shader: flat">
+            </a-entity>
         </a-entity>
 
     </a-scene>
