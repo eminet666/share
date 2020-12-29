@@ -14,4 +14,4 @@
 * [dynamic_boutons](https://eminet666.github.io/share/glypta/index_1_move_boutons.html)
 
 * [final_boutons](https://eminet666.github.io/share/glypta/index_boutons.html)
-* [test8](https://eminet666.github.io/share/glypta/index_2_color_oculus.html)
+* [test](https://eminet666.github.io/share/glypta/index_2_color_oculus.html)

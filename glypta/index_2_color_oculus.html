@@ -60,7 +60,17 @@
         }
     });
 
-
+    AFRAME.registerComponent('couleurs', {
+        init: function() {
+            let mesh = this.el.getObject3D("mesh");
+            this.el.addEventListener("raycaster-intersected", function(event) {
+                mesh.material.color.set("red");
+            });
+            this.el.addEventListener("raycaster-intersected-cleared", function(event) {
+                mesh.material.color.set("blue");
+            });
+        }
+    });
 
         AFRAME.registerComponent('modify-materials', {
             init: function () {
@@ -82,7 +92,7 @@
 
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
+<body>
 
     <a-scene renderer="antialias: true" background="color: #5280A7">
         <a-assets>
@@ -145,8 +155,9 @@
 
         <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
                    position="0 0 -4" rotation="0 0 0"
-                   class="collidable" couleurs>
+                   class="collidable" couleurs modify-materials>
         </a-entity>
+
         <a-box position="-2 0.5 -3" color="blue"
             class = "collidable"
             couleurs>
