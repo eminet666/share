@@ -62,13 +62,24 @@
 
         AFRAME.registerComponent('couleurs', {
             init: function() {
-                let mesh = this.el.getObject3D("mesh");
+                // let mesh = this.el.getObject3D("mesh");
+                // this.el.addEventListener("raycaster-intersected", function(event) {
+                //     mesh.material.color.set("red");
+                // });
+                // this.el.addEventListener("raycaster-intersected-cleared", function(event) {
+                //     mesh.material.color.set("blue");
+                // });
+
                 this.el.addEventListener("raycaster-intersected", function(event) {
-                    mesh.material.color.set("red");
+                          const obj = this.el.getObject3D('mesh');
+                          console.log(obj);
+                          obj.traverse(node => {
+                            if (node.name.indexOf('Cube') !== -1) {
+                              node.material.color.set('yellow');
+                            }
+                          });
                 });
-                this.el.addEventListener("raycaster-intersected-cleared", function(event) {
-                    mesh.material.color.set("blue");
-                });
+
             }
         });
 
@@ -158,10 +169,10 @@
                    class="collidable" modify-materials>
         </a-entity>
 
-        <a-box position="-2 0.5 -3" color="blue"
+        <!-- <a-box position="-2 0.5 -3" color="blue"
             class = "collidable"
             couleurs>
-        </a-box>
+        </a-box> -->
 
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="15" height="15" color="#CCCCCC"
