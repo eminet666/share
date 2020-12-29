@@ -184,6 +184,7 @@
         <a-entity id="camera" camera look-controls
                 position="0 1.7 0"
                 extended-wasd-controls="flyEnabled: true; turnEnabled: true; lookEnabled: true; maxLookAngle: 60;">
+                <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: yellow; shader: flat">
         </a-entity>
 
         <!-- ECLAIRAGES -->
@@ -223,11 +224,6 @@
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="15" height="15" color="#CCCCCC">
         </a-plane>
-
-        <a-entity camera look-controls position="0 1.7 0">
-            <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015" material="color: yellow; shader: flat">
-            </a-entity>
-        </a-entity>    
 
     </a-scene>
 
