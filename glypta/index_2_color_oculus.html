@@ -42,9 +42,17 @@
           const droite= document.querySelector('#droite');
           var el = this.el;
 
-          // gauche.addEventListener("triggerdown", function(event)	{
-          //
-          // });
+          gauche.addEventListener("triggerdown", function(event)	{
+              // Grab the mesh / scene.
+              const obj = this.el.getObject3D('mesh');
+              console.log(obj);
+              // Go over the submeshes and modify materials we want.
+              obj.traverse(node => {
+                if (node.name.indexOf('Cube') !== -1) {
+                  node.material.color.set('red');
+                }
+              });          
+          });
           // droite.addEventListener("triggerdown", function(event)	{
           //
           // });
@@ -128,7 +136,7 @@
 
         <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
                    position="0 0 -4" rotation="0 0 0"
-                   class = "collidable">
+                   class = "collidable" couleurs>
         </a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0"
