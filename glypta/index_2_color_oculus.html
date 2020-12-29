@@ -42,7 +42,13 @@
           const droite= document.querySelector('#droite');
           var el = this.el;
 
-          gauche.addEventListener("triggerdown", function(event)	{
+          // gauche.addEventListener("triggerdown", function(event)	{
+          //
+          // });
+          // droite.addEventListener("triggerdown", function(event)	{
+          //
+          // });
+          this.el.addEventListener("raycaster-intersected", function(event) {
               // Grab the mesh / scene.
               const obj = this.el.getObject3D('mesh');
               console.log(obj);
@@ -52,9 +58,6 @@
                   node.material.color.set('red');
                 }
               });
-          });
-          droite.addEventListener("triggerdown", function(event)	{
-
           });
       }
     });
@@ -80,11 +83,13 @@
         <a-entity id="utilisateur" position="0 0 0" movement-controls>
             <a-entity camera position="0 1.7 1" look-controls></a-entity>
             <a-entity id="gauche" oculus-touch-controls="hand: left"
+                      laser-controls="hand: left"
                       raycaster="objects: .collidable; far: 5;"
                       line="color: #CCCCCC"
                       gauche>
             </a-entity>
             <a-entity id="droite" oculus-touch-controls="hand: right"
+                      laser-controls="hand: right"
                       raycaster="objects: .collidable; far: 5;"
                       line="color: #CCCCCC"
                       droite>
