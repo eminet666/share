@@ -65,7 +65,18 @@
                 let mesh = this.el.getObject3D("mesh");
                 this.el.addEventListener("raycaster-intersected", function(event) {
                     mesh.material.color.set("red");
+
+                    const obj = this.el.getObject3D('mesh');
+                    console.log(obj);
+                    // Go over the submeshes and modify materials we want.
+                    obj.traverse(node => {
+                      if (node.name.indexOf('Cube') !== -1) {
+                        node.material.color.set('red');
+                      }
+                    });
+
                 });
+
                 this.el.addEventListener("raycaster-intersected-cleared", function(event) {
                     mesh.material.color.set("blue");
                 });
