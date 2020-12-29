@@ -29,37 +29,32 @@
         init: function()
         {
             const utilisateur = document.querySelector('#utilisateur');
-            const cube = document.querySelector('#cube');
+            var cube = document.querySelector('#cube');
 
             this.el.addEventListener("thumbstickmoved", function(event)	{
                 utilisateur.object3D.rotation.y += event.detail.y/30;
             });
 
             this.el.addEventListener("triggerdown", function(event)	{
-                // Grab the mesh / scene.
-                const obj = cube.getObject3D('mesh');
-                console.log(obj);
-                // Go over the submeshes and modify materials we want.
-                obj.traverse(node => {
-                  if (node.name.indexOf('Cube') !== -1) {
-                    node.material.color.set('red');
-                  }
-                });
+                // // Grab the mesh / scene.
+                // const obj = cube.getObject3D('mesh');
+                // console.log(obj);
+                // // Go over the submeshes and modify materials we want.
+                // obj.traverse(node => {
+                //   if (node.name.indexOf('Cube') !== -1) {
+                //     node.material.color.set('green');
+                //   }
+                // });
+                utilisateur.object3D.position.x -= event.detail.x/40;
             });
-
-
-
-
-
-
         }
     });
 
     AFRAME.registerComponent('couleurs', {
       init: function () {
-          const gauche= document.querySelector('#gauche');
-          const droite= document.querySelector('#droite');
-          var el = this.el;
+          // const gauche= document.querySelector('#gauche');
+          // const droite= document.querySelector('#droite');
+          // var el = this.el;
 
           // gauche.addEventListener("triggerdown", function(event)	{
           //     // Grab the mesh / scene.
@@ -89,6 +84,24 @@
           // });
       }
     });
+
+    AFRAME.registerComponent('modify-materials', {
+      init: function () {
+
+        // Wait for model to load.
+        this.el.addEventListener('model-loaded', () => {
+          // Grab the mesh / scene.
+          const obj = this.el.getObject3D('mesh');
+          console.log(obj);
+          // Go over the submeshes and modify materials we want.
+          obj.traverse(node => {
+            if (node.name.indexOf('Cube') !== -1) {
+              node.material.color.set('red');
+            }
+          });
+        });
+      }
+    });
     </script>
 
 </head>
@@ -112,13 +125,13 @@
             <a-entity camera position="0 1.7 1" look-controls></a-entity>
             <a-entity id="gauche" oculus-touch-controls="hand: left"
                       laser-controls="hand: left"
-                      raycaster="objects: .collidable; far: 5;"
+                      raycaster="objects: .collidable; far: 100;"
                       line="color: #CCCCCC"
                       gauche>
             </a-entity>
             <a-entity id="droite" oculus-touch-controls="hand: right"
                       laser-controls="hand: right"
-                      raycaster="objects: .collidable; far: 5;"
+                      raycaster="objects: .collidable; far: 100;"
                       line="color: #CCCCCC"
                       droite>
             </a-entity>
@@ -131,32 +144,32 @@
         <!-- MODELES 3D -->
         <a-entity  id ="aphrodite" gltf-model="#aphrodite" mixin="commun"
                    position="0 0 -3" rotation="0 0 0"
-                   class = "collidable">
+                   class="collidable">
         </a-entity>
 
         <a-entity  id ="artemis" gltf-model="#artemis" mixin="commun"
                    position="-2 0 -2" rotation="0 0 0"
-                   class = "collidable">
+                   class="collidable">
         </a-entity>
 
         <a-entity  id ="capitoline" gltf-model="#capitoline" mixin="commun"
                    position="2 0 -2" rotation="0 180 0"
-                   class = "collidable">
+                   class="collidable">
         </a-entity>
 
         <a-entity  id ="silene" gltf-model="#silene" mixin="commun"
                    position="2 0 -2.5" rotation="0 0 0"
-                   class = "collidable">
+                   class="collidable">
         </a-entity>
 
         <a-entity  id ="callypige" gltf-model="#callypige" mixin="commun"
                    position="0 0 3" rotation="0 180 0"
-                   class = "collidable">
+                   class="collidable">
         </a-entity>
 
         <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
                    position="0 0 -4" rotation="0 0 0"
-                   class = "collidable" couleurs>
+                   class="collidable" couleurs modify-materials>
         </a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0"
