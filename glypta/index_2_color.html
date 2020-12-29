@@ -1,7 +1,6 @@
 <!-- sources 3D models : https://cults3d.com/fr/ -->
-https://github.com/jeromeetienne/AR.js/issues/494
-
-
+<!-- https://aframe.io/docs/1.1.0/introduction/models.html#modifying-materials -->
+<!-- https://glitch.com/edit/#!/aframe-modify-model-material?path=index.html%3A1%3A0 -->
 <!DOCTYPE html>
 <html>
 
@@ -18,48 +17,50 @@ https://github.com/jeromeetienne/AR.js/issues/494
     <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
 
     <script>
-
-        AFRAME.registerComponent('couleur', {
-            init: function() {
-                // let mesh = this.el.getObject3D('mesh');
-                // console.log(mesh);
-
-                const callypige = document.querySelector('#callypige');
-
-                // Wait for model to load.
-                this.el.addEventListener('model-loaded', () => {
-                    AFRAME.utils.entity.setComponentProperty(callypige, 'color', 'red');
-                });
-            }
+        AFRAME.registerComponent('modify-materials', {
+          init: function () {
+            // Wait for model to load.
+            this.el.addEventListener('model-loaded', () => {
+              // Grab the mesh / scene.
+              const obj = this.el.getObject3D('mesh');
+              // Go over the submeshes and modify materials we want.
+              obj.traverse(node => {
+                if (node.name.indexOf('Cube') !== -1) {
+                  node.material.color.set('red');
+                }
+              });
+            });
+          }
         });
+        AFRAME.registerComponent('couleurs', {
+          init: function () {
+            // Wait for model to load.
+            this.el.addEventListener('click', () => {
+                console.log("ici")
+            });
+          }
+        });
+        AFRAME.registerComponent('cursor-listener', {
+            init: function () {
+                 this.el.addEventListener('click', function (evt) {
+                console.log('I was clicked at: ', evt.detail.intersection.point);
+              });
+            }
+          });
 
-      // AFRAME.registerComponent('modify-materials', {
-      //   init: function () {
-      //     // Wait for model to load.
-      //     this.el.addEventListener('model-loaded', () => {
-      //       // Grab the mesh / scene.
-      //       const obj = this.el.getObject3D('mesh');
-      //       // Go over the submeshes and modify materials we want.
-      //       obj.traverse(node => {
-      //         if (node.name.indexOf('ship') !== -1) {
-      //           node.material.color.set('red');
-      //         }
-      //       });
-      //     });
-      //   }
-      // });
     </script>
 
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene background="color: #5280A7" gltf-model="dracoDecoderPath: ./js/draco/;">
+    <a-scene background="color: #5280A7">
         <a-assets>
             <a-asset-item id="aphrodite" src="./assets/models/aphrodite.glb"></a-asset-item>
             <a-asset-item id="artemis" src="./assets/models/artemis.glb"></a-asset-item>
             <a-asset-item id="capitoline" src="./assets/models/capitoline.glb"></a-asset-item>
             <a-asset-item id="callypige" src="./assets/models/callypige.glb"></a-asset-item>
+            <a-asset-item id="cube" src="./assets/models/cube.gltf"></a-asset-item>
             <a-mixin id="commun" model_loaded shadow="cast:true; receive:true"
             >
             </a-mixin>
@@ -71,19 +72,23 @@ https://github.com/jeromeetienne/AR.js/issues/494
 
         <!-- MODELES 3D -->
         <a-entity  id ="aphrodite" gltf-model="#aphrodite" mixin="commun"
-                   position="0 0 -3" rotation="0 0 0" couleur>
+                   position="0 0 -3" rotation="0 0 0">
         </a-entity>
 
         <a-entity  id ="artemis" gltf-model="#artemis" mixin="commun"
-                   position="-1 0 -2" rotation="0 0 0" modify-materials>
+                   position="-1 0 -2" rotation="0 0 0">
         </a-entity>
 
         <a-entity  id ="capitoline" gltf-model="#capitoline" mixin="commun"
-                   position="1 0 -2" rotation="0 180 0" modify-materials>
+                   position="1 0 -2" rotation="0 180 0">
         </a-entity>
 
         <a-entity  id ="callypige" gltf-model="#callypige" mixin="commun"
-                   position="0 0 3" rotation="0 180 0" modify-materials>
+                   position="0 0 3" rotation="0 180 0">
+        </a-entity>
+
+        <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
+                   position="0 0 -4" rotation="0 0 0" couleurs cursor-listener>
         </a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0"
@@ -93,6 +98,14 @@ https://github.com/jeromeetienne/AR.js/issues/494
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="10" height="10" color="#CCCCCC">
         </a-plane>
+
+        <a-entity camera look-controls position="0 1.6 0">
+              <a-entity cursor="fuse: true; fuseTimeout: 500"
+                        position="0 0 -5"
+                        geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15"
+                        material="color: black; shader: flat">
+              </a-entity>
+        </a-entity>
 
     </a-scene>
 
