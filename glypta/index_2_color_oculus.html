@@ -29,10 +29,29 @@
         init: function()
         {
             const utilisateur = document.querySelector('#utilisateur');
+            const cube = document.querySelector('#cube');
 
             this.el.addEventListener("thumbstickmoved", function(event)	{
                 utilisateur.object3D.rotation.y += event.detail.y/30;
             });
+
+            this.el.addEventListener("triggerdown", function(event)	{
+                // Grab the mesh / scene.
+                const obj = cube.getObject3D('mesh');
+                console.log(obj);
+                // Go over the submeshes and modify materials we want.
+                obj.traverse(node => {
+                  if (node.name.indexOf('Cube') !== -1) {
+                    node.material.color.set('red');
+                  }
+                });
+            });
+
+
+
+
+
+
         }
     });
 
@@ -56,41 +75,20 @@
           // droite.addEventListener("triggerdown", function(event)	{
           //
           // });
-          this.el.addEventListener("raycaster-intersected", function(event) {
-              // // Grab the mesh / scene.
-              // const obj = this.el.getObject3D('mesh');
-              // console.log(obj);
-              // // Go over the submeshes and modify materials we want.
-              // obj.traverse(node => {
-              //   if (node.name.indexOf('Cube') !== -1) {
-              //     node.material.color.set('blue');
-              //   }
-              // });
-            const utilisateur = document.querySelector('#utilisateur');
-            utilisateur.object3D.rotation.y += event.detail.y/30;
-          });
+
+          // this.el.addEventListener("raycaster-intersected", function(event) {
+          //     // Grab the mesh / scene.
+          //     const obj = this.el.getObject3D('mesh');
+          //     console.log(obj);
+          //     // Go over the submeshes and modify materials we want.
+          //     obj.traverse(node => {
+          //       if (node.name.indexOf('Cube') !== -1) {
+          //         node.material.color.set('blue');
+          //       }
+          //     });
+          // });
       }
     });
-
-    AFRAME.registerComponent('modify-materials', {
-      init: function () {
-        // Wait for model to load.
-        this.el.addEventListener('model-loaded', () => {
-          // Grab the mesh / scene.
-          const obj = this.el.getObject3D('mesh');
-          console.log(obj);
-          // Go over the submeshes and modify materials we want.
-          obj.traverse(node => {
-            if (node.name.indexOf('Cube') !== -1) {
-              node.material.color.set('red');
-            }
-          });
-        });
-      }
-    });
-
-
-
     </script>
 
 </head>
@@ -158,7 +156,7 @@
 
         <a-entity  id ="cube" gltf-model="#cube" mixin="commun"
                    position="0 0 -4" rotation="0 0 0"
-                   class = "collidable" couleurs modify-materials>
+                   class = "collidable" couleurs>
         </a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0"
