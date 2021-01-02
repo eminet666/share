@@ -1,0 +1,120 @@
+<!-- https://codepen.io/olivier-c/pen/OVxpVr?editors=1100 -->
+<!-- https://www.alsacreations.com/astuce/lire/1216-arriere-plan-background-extensible.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+      <style>
+          * {
+            margin: 0;
+          }
+          body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 100%;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+            color: #333;
+          }
+          .nav {
+            order: -1;
+            padding: 1rem;
+            background: Peru;
+          }
+          .footer {
+            padding: 1rem;
+            background: Chocolate;
+          }
+          .wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+          }
+          .main {
+            background: Tan;
+          }
+          .aside {
+            padding: 1rem;
+            text-align: center;
+            background: Orange;
+          }
+          @media (max-width: 30rem) {
+            .main {
+              flex: 1 0 auto;
+            }
+          }
+          @media (min-width: 30rem) {
+            .nav {
+              display: block;
+            }
+            .wrapper {
+              flex-direction: row;
+            }
+            .main {
+              flex: 1 1 auto;
+            }
+            .aside {
+              width: 20%;
+            }
+          }
+
+          img{
+            height: inherit;
+            width: inherit;
+          }
+
+    </style>
+</head>
+<html>
+  <body>
+    <div class="wrapper">
+      <main class="main">
+      <img src="./images/0_home/img0.png" class="img">
+      </main>
+      <aside class="aside">.aside</aside>
+    </div>
+    <nav class="nav">.nav</nav>
+    <footer class="footer">.footer</footer>
+
+    <script>
+//     let parent = document.getElement
+//     element.closest('.MonParent');
+//     var oEle = document.getElementById("id498a");
+// var oParent = oEle.closest(".maclass");
+        function imgAdjust() {
+            var el = document.querySelector(".main");
+            let largeur = el.clientWidth;
+            let hauteur = el.clientHeight;
+            console.log(el.clientWidth+"_"+el.clientHeight);
+            let ratio = largeur/hauteur;
+
+            var elementList = document.querySelectorAll(".img");
+        	   for (var i = 0; i < elementList.length; i++) {
+                   let elt = elementList[i];
+                   let imgW = elt.naturalWidth;
+                   let imgH = elt.naturalHeight;
+                   console.log(imgW+"_"+imgH);
+                   let imgRatio = imgW / imgH;
+
+                   if(ratio > imgRatio) {
+                       elt.style.setProperty('height', hauteur+"px");
+                       elt.style.setProperty('width', 'auto');
+                       console.log("1 "+ratio+"_"+imgRatio);
+                   }
+                   else {
+                       elt.style.setProperty('width', largeur+"px");
+                       elt.style.setProperty('height', 'auto');
+                       console.log("1 "+ratio+"_"+imgRatio);
+                   }
+               }
+        }
+
+        imgAdjust();
+
+
+    </script>
+  </body>
+</html>
+</html>

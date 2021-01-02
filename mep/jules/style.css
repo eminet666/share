@@ -5,13 +5,11 @@ html {
   box-sizing: inherit;
 }
 
-
 body{
   margin:0;
   background: #eee;
   font-family: 'Space Mono', monospace;
 }
-
 
 a{
   color:#333;
