@@ -56,7 +56,7 @@
               flex: 1 1 auto;
             }
             .aside {
-              width: 20%;
+              width: 10%;
             }
           }
 
@@ -70,6 +70,7 @@
 <html>
   <body>
     <div class="wrapper">
+      <aside class="aside">.aside</aside>
       <main class="main">
       <img src="./images/0_home/img0.png" class="img">
       </main>
@@ -113,6 +114,22 @@
 
         imgAdjust();
 
+        function toggleFullScreen() {
+          if (!document.fullscreenElement) {
+              document.documentElement.requestFullscreen();
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            }
+          }
+        }
+
+        document.addEventListener("keydown", function(e) {
+          if (e.keyCode == 13) {
+            toggleFullScreen();
+            imgAdjust();
+          }
+        }, false);
 
     </script>
   </body>

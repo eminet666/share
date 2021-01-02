@@ -106,18 +106,18 @@
             },
             init: function() {
                 // Wait for model to load.
-                this.el.addEventListener('click', () => {
-                        // Grab the mesh / scene.
-                        let obj = this.el.getObject3D('mesh');
-                        let cible = this.data.cible;
-                        // Go over the submeshes and modify materials we want.
-                        obj.traverse(node => {
-                            if (node.name.indexOf(cible) !== -1) {
-                                let new_color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
-                                node.material.color.set(new_color);
-                            }
-                        });
-                });
+                // this.el.addEventListener('click', () => {
+                //         // Grab the mesh / scene.
+                //         let obj = this.el.getObject3D('mesh');
+                //         let cible = this.data.cible;
+                //         // Go over the submeshes and modify materials we want.
+                //         obj.traverse(node => {
+                //             if (node.name.indexOf(cible) !== -1) {
+                //                 let new_color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
+                //                 node.material.color.set(new_color);
+                //             }
+                //         });
+                // });
             }
 
         });
