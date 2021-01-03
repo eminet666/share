@@ -4,6 +4,7 @@
 # sirtaki - view360
 
 * [ensaama](https://eminet666.github.io/share/sirtaki/view360/ensaama.html)
+* [ensaama2](https://eminet666.github.io/share/sirtaki/view360/ensaama2.html)
 * [chrissi](https://eminet666.github.io/share/sirtaki/view360/chrissi.html)
 * [cuffy](https://eminet666.github.io/share/sirtaki/view360/cuffy.html)
 * [foch](https://eminet666.github.io/share/sirtaki/view360/foch.html)

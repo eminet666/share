@@ -23,3 +23,6 @@
 # modelage
 * [mobile](https://eminet666.github.io/share/modelage/index_boutons.html)
 * [oculus](https://eminet666.github.io/share/modelage/index_1_move_oculus.html)
+
+# autres
+* [duperre](https://www.pierreginer.com/duperre360)
