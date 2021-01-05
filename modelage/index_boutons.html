@@ -171,6 +171,7 @@
         <a-assets>
             <a-asset-item id="model" src="./assets/models/test/model.glb"></a-asset-item>
             <a-asset-item id="model3" src="./assets/models/test/model3.glb"></a-asset-item>
+            <a-asset-item id="model3_2" src="./assets/models/test/model3_2.glb"></a-asset-item>
             <a-mixin id="commun" model_loaded shadow="cast:true; receive:true"></a-mixin>
         </a-assets>
 
@@ -194,6 +195,9 @@
         <a-entity  id ="test" gltf-model="#model3" mixin="commun"
                    position="2 -0.1 -1" rotation="0 0 0" scale="15 15 15">
         </a-entity>
+        <a-entity  id ="test3_2" gltf-model="#model3_2" mixin="commun"
+                   position="-2 -2.5 -3" rotation="0 -90 0" scale="15 15 15">
+        </a-entity>        
 
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="15" height="15" color="#CCCCCC"
