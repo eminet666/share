@@ -21,8 +21,10 @@
 * [tutu](https://eminet666.github.io/share/mep/jules/tutu.html)
 
 # modelage
-* [mobile](https://eminet666.github.io/share/modelage/index_boutons.html)
-* [oculus](https://eminet666.github.io/share/modelage/index_1_move_oculus.html)
+* [mobile](https://eminet666.github.io/share/modelage/index_boutons.html) |
+[mobile_2](https://eminet666.github.io/share/modelage/index_boutons_2.html)
+* [oculus](https://eminet666.github.io/share/modelage/index_1_move_oculus.html) |
+[oculus_2](https://eminet666.github.io/share/modelage/index_1_move_oculus_2.html)
 
 # autres
 * [duperre](https://www.pierreginer.com/duperre360)
