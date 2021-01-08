@@ -19,6 +19,7 @@
             color: #333;
           }
           .nav {
+            /* order: -1; */
             padding: 1rem;
             background: Peru;
           }
@@ -33,14 +34,12 @@
           }
           .main {
             background: Tan;
-            margin:0; padding:0;
           }
           .aside {
             padding: 1rem;
             text-align: center;
             background: Orange;
           }
-          .visuel{ }
           @media (max-width: 30rem) {
             .main {
               flex: 1 0 auto;
@@ -57,8 +56,13 @@
               flex: 1 1 auto;
             }
             .aside {
-              max-width: 10%;
+              max-width: 100%;
             }
+          }
+
+          img{
+            height: inherit;
+            width: inherit;
           }
 
     </style>
@@ -69,7 +73,7 @@
     <div class="wrapper">
       <aside class="aside">.aside</aside>
       <main class="main">
-          <img src="./images/0_home/img0.png" class="visuel">
+          <img src="./images/0_home/img0.png" class="img">
       </main>
       <aside class="aside">.aside</aside>
     </div>
@@ -84,10 +88,10 @@
             var el = document.querySelector(".main");
             let largeur = el.clientWidth;
             let hauteur = el.clientHeight;
-            console.log(largeur+"_"+hauteur);
+            console.log(el.clientWidth+"_"+el.clientHeight);
             let ratio = largeur/hauteur;
 
-            var elementList = document.querySelectorAll(".visuel");
+            var elementList = document.querySelectorAll(".img");
         	   for (var i = 0; i < elementList.length; i++) {
                    let elt = elementList[i];
                    let imgW = elt.naturalWidth;
@@ -96,12 +100,14 @@
                    let imgRatio = imgW / imgH;
 
                    if(ratio > imgRatio) {
-                       elt.style.setProperty('height', hauteur + "px");
+                       elt.style.setProperty('height', hauteur+"px");
                        elt.style.setProperty('width', 'auto');
+                       console.log("1 "+ratio+"_"+imgRatio);
                    }
                    else {
-                       elt.style.setProperty('width', largeur + "px");
+                       elt.style.setProperty('width', largeur+"px");
                        elt.style.setProperty('height', 'auto');
+                       console.log("1 "+ratio+"_"+imgRatio);
                    }
                }
         }
