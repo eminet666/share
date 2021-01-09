@@ -36,7 +36,7 @@
                 return (materiel =="mobile") ? "paysage" : "portrait";
             }
             else {
-                return (materiel =="mobile") ? "portrait" : "paysage";                
+                return (materiel =="mobile") ? "portrait" : "paysage";
             }
     }
     orientation = checkOrientation();
@@ -57,7 +57,7 @@
     }
     checkRotation();
 
-    document.getElementById("info").innerHTML = window.screen.orientation.angle+"_"+orientation;
+    document.getElementById("info").innerHTML = materiel+"_"+window.screen.orientation.angle+"_"+orientation;
 
     </script>
 </body>
