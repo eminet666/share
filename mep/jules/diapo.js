@@ -56,13 +56,13 @@ function imgAdjust(contenant) {
                elt.style.setProperty('height', hauteur + "px");
                elt.style.setProperty('width', 'auto');
                console.log(hauteur+"_auto");
-               document.getElementById("info").innerHTML += hauteur+"_auto";
+               // document.getElementById("info").innerHTML += hauteur+"_auto";
            }
            else {
                elt.style.setProperty('width', largeur + "px");
                elt.style.setProperty('height', 'auto');
                console.log("auto_"+largeur);
-               document.getElementById("info").innerHTML += "auto_"+largeur;
+               // document.getElementById("info").innerHTML += "auto_"+largeur;
            }
        }
 }
