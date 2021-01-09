@@ -1,5 +1,4 @@
-<!-- https://github.com/hgoebl/mobile-detect.js -->
-<!-- http://hgoebl.github.io/mobile-detect.js/ -->
+<!-- https://levelup.gitconnected.com/auto-detecting-mobile-devices-screen-orientation-ddcf9554b45b -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,65 +8,35 @@
 </head>
 
 <body>
-    <p id="info">info5 : </p>
-    <script>
-    function isMobileDevice() {
-        if( navigator.userAgent.match(/iPhone/i)
-        || navigator.userAgent.match(/webOS/i)
-        || navigator.userAgent.match(/Android/i)
-        || navigator.userAgent.match(/iPad/i)
-        || navigator.userAgent.match(/iPod/i)
-        | navigator.userAgent.match(/BlackBerry/i)
-        || navigator.userAgent.match(/Windows Phone/i)
-        ){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    let materiel = isMobileDevice() ? 'mobile' : 'desktop';
-    console.log(materiel);
+    <div class='root'>
+        <h1 class='h1_text'>Device: N/A</h1>
+        <h2 class='h2_text'>Orientation: N/A</h2>
+    </div>
 
-    let angle = window.screen.orientation.angle;
-    document.getElementById("info").innerHTML = angle;
-    let orientation;
-    //
-    // function checkOrientation(etat) {
-    //         switch(etat) {
-    //             case 0 : orientation = (materiel == 'mobile') ? 'portrait': 'paysage';
-    //                 break;
-    //             case 90 : orientation = (materiel == 'mobile') ? 'paysage': 'portrait';
-    //                 break;
-    //             default:
-    //         }
-    //
-    //         updateDevice();
-    // }
-    //
-    // function checkRotation() {
-    //     window.addEventListener("orientationchange", function() {
-    //         // console.log(window.screen.orientation.angle);
-    //         let orientation, largeur, hauteur;
-    //         if(window.screen.orientation.angle == 0) {
-    //             angle = 0;
-    //             checkOrientation(0);
-    //         }
-    //         else {
-    //             angle = 90;
-    //             checkOrientation(90);
-    //         }
-    //         updateDevice();
-    //     });
-    // }
-    //
-    // function updateDevice() {
-    //     document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
-    // }
-    //
-    // checkOrientation(angle);
-    // checkRotation();
-    // document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
+    <script>
+    document.addEventListener("DOMContentLoaded", initDetect)
+
+    function initDetect(){
+      window.addEventListener("resize", detectDevice)
+      detectDevice()
+    }
+
+    detectDevice = () => {
+      let detectDeviceObj = {
+        device: !!navigator.maxTouchPoints ? 'mobile' : 'computer',
+        orientation: !navigator.maxTouchPoints ? 'desktop' : !window.screen.orientation.angle ? 'portrait' : 'landscape'
+      }
+
+      updateText(detectDeviceObj)
+    }
+
+    updateText = (detectDeviceObj) => {
+      let h1Text = document.querySelector(".h1_text")
+      let h2Text = document.querySelector(".h2_text")
+
+      h1Text.innerHTML = `Device: ${detectDeviceObj.device}`
+      h2Text.innerHTML = `Orientation: ${detectDeviceObj.orientation}`
+    }
     </script>
 </body>
 
