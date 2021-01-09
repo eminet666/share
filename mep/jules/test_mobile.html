@@ -28,11 +28,10 @@
     }
     let materiel = isMobileDevice() ? 'mobile' : 'desktop';
     console.log(materiel);
-    document.getElementById("info").innerHTML = materiel;
 
-    //
-    // let angle = window.screen.orientation.angle;
-    // let orientation;
+    let angle = window.screen.orientation.angle;
+    document.getElementById("info").innerHTML = angle;
+    let orientation;
     //
     // function checkOrientation(etat) {
     //         switch(etat) {
