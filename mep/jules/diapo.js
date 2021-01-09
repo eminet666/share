@@ -25,11 +25,37 @@ function showSlides(n) {
     // for (i = 0; i < dots.length; i++) {
     //     dots[i].className = dots[i].className.replace(" active", "");
     // }
-    console.log(slideIndex);
     slides[slideIndex - 1].style.display = "block";
     // dots[slideIndex - 1].className += " active";
 }
 
+function imgAdjust() {
+    var el = document.querySelector(".main");
+    let largeur = el.clientWidth;
+    let hauteur = el.clientHeight;
+    console.log(largeur+"_"+hauteur);
+    let ratio = largeur/hauteur;
+
+    var elementList = document.querySelectorAll(".visuel");
+       for (var i = 0; i < elementList.length; i++) {
+           let elt = elementList[i];
+           let imgW = elt.naturalWidth;
+           let imgH = elt.naturalHeight;
+           console.log(imgW+"_"+imgH);
+           let imgRatio = imgW / imgH;
+
+           if(ratio > imgRatio) {
+               elt.style.setProperty('height', hauteur + "px");
+               elt.style.setProperty('width', 'auto');
+           }
+           else {
+               elt.style.setProperty('width', largeur + "px");
+               elt.style.setProperty('height', 'auto');
+           }
+       }
+}
+
+imgAdjust();
 
 function toggleFullScreen(idon,idoff) {
   if (!document.fullscreenElement) {
