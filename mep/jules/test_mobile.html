@@ -32,27 +32,32 @@
     function checkOrientation() {
             let largeur = screen.availWidth;
             let hauteur = screen.availHeight;
-            let orientation = (largeur > hauteur) ? "paysage" : "portait";
-            console.log(orientation+"_"+largeur+"_"+hauteur);
-            document.getElementById("info").innerHTML = orientation+"_"+largeur+"_"+hauteur;
-            return orientation;
+            if(largeur > hauteur) {
+                return (materiel =="mobile") ? "paysage" : "portrait";
+            }
+            else {
+                return (materiel =="mobile") ? "portrait" : "paysage";                
+            }
     }
-    let orientation = checkOrientation();
+    orientation = checkOrientation();
 
     function checkRotation() {
         window.addEventListener("orientationchange", function() {
             // console.log(window.screen.orientation.angle);
             let orientation, largeur, hauteur;
             if(window.screen.orientation.angle == 0) {
-                checkOrientation();
+                console.log("ici");
+                return (materiel == "mobile") ? "portrait" : "paysage";
             }
             else {
-                checkOrientation();
+                console.log("la");
+                return (materiel =="mobile") ? "paysage" : "portrait";
             }
-           document.getElementById("info").innerHTML += window.screen.orientation.angle;
         }, false);
     }
     checkRotation();
+
+    document.getElementById("info").innerHTML = window.screen.orientation.angle+"_"+orientation;
 
     </script>
 </body>
