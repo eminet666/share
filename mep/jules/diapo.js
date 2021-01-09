@@ -55,12 +55,14 @@ function imgAdjust(contenant) {
            if(ratio > imgRatio) {
                elt.style.setProperty('height', hauteur + "px");
                elt.style.setProperty('width', 'auto');
-               // console.log(hauteur+"_auto");
+               console.log(hauteur+"_auto");
+               document.getElementById("info").innerHTML += hauteur+"_auto";
            }
            else {
                elt.style.setProperty('width', largeur + "px");
                elt.style.setProperty('height', 'auto');
-               // console.log("auto_"+largeur);
+               console.log("auto_"+largeur);
+               document.getElementById("info").innerHTML += "auto_"+largeur;
            }
        }
 }
@@ -84,6 +86,7 @@ function checkOrientation() {
     window.addEventListener("orientationchange", function() {
         imgAdjust(".pleinepage");
         // console.log(window.screen.orientation.angle);
+        document.getElementById("info").innerHTML += window.screen.orientation.angle;
     }, false);
 }
 checkOrientation();
