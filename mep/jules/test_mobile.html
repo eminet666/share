@@ -1,0 +1,59 @@
+<!-- https://github.com/hgoebl/mobile-detect.js -->
+<!-- http://hgoebl.github.io/mobile-detect.js/ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+    <p id="info">info : </p>
+    <script>
+    function isMobileDevice() {
+        if( navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        | navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)
+        ){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    let materiel = isMobileDevice() ? 'mobile' : 'desktop';
+    console.log(materiel);
+
+    function checkOrientation() {
+            let largeur = screen.availWidth;
+            let hauteur = screen.availHeight;
+            let orientation = (largeur > hauteur) ? "paysage" : "portait";
+            console.log(orientation+"_"+largeur+"_"+hauteur);
+            document.getElementById("info").innerHTML = orientation+"_"+largeur+"_"+hauteur;
+            return orientation;
+    }
+    let orientation = checkOrientation();
+
+    function checkRotation() {
+        window.addEventListener("orientationchange", function() {
+            // console.log(window.screen.orientation.angle);
+            let orientation, largeur, hauteur;
+            if(window.screen.orientation.angle == 0) {
+                checkOrientation();
+            }
+            else {
+                checkOrientation();
+            }
+        }, false);
+    }
+    checkRotation();
+
+    </script>
+</body>
+
+</html>
