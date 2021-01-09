@@ -32,7 +32,7 @@ function showSlides(n) {
 function imgAdjust(contenant) {
     var el = document.querySelector(contenant);
     var largeur, hauteur;
-    console.log(window.screen.orientation.angle);
+    // console.log(window.screen.orientation.angle);
     if(window.screen.orientation.angle == 0) {
         largeur = el.clientWidth;
         hauteur = el.clientHeight;
@@ -42,7 +42,7 @@ function imgAdjust(contenant) {
         hauteur = el.clientWidth;
     }
 
-    console.log(contenant+"_"+largeur+"_"+hauteur);
+    // console.log(contenant+"_"+largeur+"_"+hauteur);
     let ratio = largeur/hauteur;
 
     var elementList = document.querySelectorAll(".visuel");
@@ -55,12 +55,12 @@ function imgAdjust(contenant) {
            if(ratio > imgRatio) {
                elt.style.setProperty('height', hauteur + "px");
                elt.style.setProperty('width', 'auto');
-               console.log(hauteur+"_auto");
+               // console.log(hauteur+"_auto");
            }
            else {
                elt.style.setProperty('width', largeur + "px");
                elt.style.setProperty('height', 'auto');
-               console.log("auto_"+largeur);
+               // console.log("auto_"+largeur);
            }
        }
 }
@@ -68,7 +68,7 @@ imgAdjust(".pleinepage");
 
 function toggleFullScreen(idon,idoff) {
   if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
+      document.body.requestFullscreen();
       document.getElementById(idon).style.display = "none";
       document.getElementById(idoff).style.display = "block";
   } else {
