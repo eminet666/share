@@ -29,3 +29,18 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     // dots[slideIndex - 1].className += " active";
 }
+
+
+function toggleFullScreen(idon,idoff) {
+  if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      document.getElementById(idon).style.display = "none";
+      document.getElementById(idoff).style.display = "block";
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+      document.getElementById(idon).style.display = "block";
+      document.getElementById(idoff).style.display = "none";
+    }
+  }
+}
