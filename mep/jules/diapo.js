@@ -29,8 +29,9 @@ function showSlides(n) {
     // dots[slideIndex - 1].className += " active";
 }
 
-function imgAdjust() {
-    var el = document.querySelector(".main");
+function imgAdjust(contenant) {
+    console.log(contenant);
+    var el = document.querySelector(contenant);
     let largeur = el.clientWidth;
     let hauteur = el.clientHeight;
     console.log(largeur+"_"+hauteur);
@@ -54,8 +55,6 @@ function imgAdjust() {
            }
        }
 }
-
-imgAdjust();
 
 function toggleFullScreen(idon,idoff) {
   if (!document.fullscreenElement) {
