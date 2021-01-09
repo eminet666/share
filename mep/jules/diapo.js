@@ -87,3 +87,4 @@ function checkOrientation() {
     }, false);
 }
 checkOrientation();
+window.scrollTo(0,1);
