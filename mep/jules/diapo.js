@@ -68,12 +68,12 @@ imgAdjust(".pleinepage");
 
 function toggleFullScreen(idon,idoff) {
   if (!document.fullscreenElement) {
-      document.body.requestFullscreen();
+      window.document.documentElement.requestFullscreen();
       document.getElementById(idon).style.display = "none";
       document.getElementById(idoff).style.display = "block";
   } else {
     if (document.exitFullscreen) {
-      document.exitFullscreen();
+      window.document.exitFullscreen();
       document.getElementById(idon).style.display = "block";
       document.getElementById(idoff).style.display = "none";
     }
