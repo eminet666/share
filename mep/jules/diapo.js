@@ -30,11 +30,10 @@ function showSlides(n) {
 }
 
 function imgAdjust(contenant) {
-    console.log(contenant);
     var el = document.querySelector(contenant);
     let largeur = el.clientWidth;
     let hauteur = el.clientHeight;
-    console.log(largeur+"_"+hauteur);
+    console.log("contenant = "+largeur+"_"+hauteur);
     let ratio = largeur/hauteur;
 
     var elementList = document.querySelectorAll(".visuel");
@@ -55,6 +54,7 @@ function imgAdjust(contenant) {
            }
        }
 }
+imgAdjust(".pleinepage");
 
 function toggleFullScreen(idon,idoff) {
   if (!document.fullscreenElement) {
@@ -69,3 +69,10 @@ function toggleFullScreen(idon,idoff) {
     }
   }
 }
+
+function checkOrientation() {
+    window.addEventListener("orientationchange", function() {
+        imgAdjust(".pleinepage");
+    }, false);
+}
+checkOrientation();
