@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p id="info">info3 : </p>
+    <p id="info">info4 : </p>
     <script>
     function isMobileDevice() {
         if( navigator.userAgent.match(/iPhone/i)
@@ -28,45 +28,47 @@
     }
     let materiel = isMobileDevice() ? 'mobile' : 'desktop';
     console.log(materiel);
+    document.getElementById("info").innerHTML = materiel;
 
-    let angle = window.screen.orientation.angle;
-    let orientation;
-
-    function checkOrientation(etat) {
-            switch(etat) {
-                case 0 : orientation = (materiel == 'mobile') ? 'portrait': 'paysage';
-                    break;
-                case 90 : orientation = (materiel == 'mobile') ? 'paysage': 'portrait';
-                    break;
-                default:
-            }
-
-            updateDevice();
-    }
-
-    function checkRotation() {
-        window.addEventListener("orientationchange", function() {
-            // console.log(window.screen.orientation.angle);
-            let orientation, largeur, hauteur;
-            if(window.screen.orientation.angle == 0) {
-                angle = 0;
-                checkOrientation(0);
-            }
-            else {
-                angle = 90;
-                checkOrientation(90);
-            }
-            updateDevice();
-        });
-    }
-
-    function updateDevice() {
-        document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
-    }
-
-    checkOrientation(angle);
-    checkRotation();
-    document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
+    //
+    // let angle = window.screen.orientation.angle;
+    // let orientation;
+    //
+    // function checkOrientation(etat) {
+    //         switch(etat) {
+    //             case 0 : orientation = (materiel == 'mobile') ? 'portrait': 'paysage';
+    //                 break;
+    //             case 90 : orientation = (materiel == 'mobile') ? 'paysage': 'portrait';
+    //                 break;
+    //             default:
+    //         }
+    //
+    //         updateDevice();
+    // }
+    //
+    // function checkRotation() {
+    //     window.addEventListener("orientationchange", function() {
+    //         // console.log(window.screen.orientation.angle);
+    //         let orientation, largeur, hauteur;
+    //         if(window.screen.orientation.angle == 0) {
+    //             angle = 0;
+    //             checkOrientation(0);
+    //         }
+    //         else {
+    //             angle = 90;
+    //             checkOrientation(90);
+    //         }
+    //         updateDevice();
+    //     });
+    // }
+    //
+    // function updateDevice() {
+    //     document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
+    // }
+    //
+    // checkOrientation(angle);
+    // checkRotation();
+    // document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
     </script>
 </body>
 
