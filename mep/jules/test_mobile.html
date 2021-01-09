@@ -49,6 +49,7 @@
             else {
                 checkOrientation();
             }
+           document.getElementById("info").innerHTML += window.screen.orientation.angle;
         }, false);
     }
     checkRotation();
