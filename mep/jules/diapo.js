@@ -31,9 +31,18 @@ function showSlides(n) {
 
 function imgAdjust(contenant) {
     var el = document.querySelector(contenant);
-    let largeur = el.clientWidth;
-    let hauteur = el.clientHeight;
-    console.log("contenant = "+largeur+"_"+hauteur);
+    var largeur, hauteur;
+    console.log(window.screen.orientation.angle);
+    if(window.screen.orientation.angle == 0) {
+        largeur = el.clientWidth;
+        hauteur = el.clientHeight;
+    }
+    else {
+        largeur = el.clientHeight;
+        hauteur = el.clientWidth;
+    }
+
+    console.log(contenant+"_"+largeur+"_"+hauteur);
     let ratio = largeur/hauteur;
 
     var elementList = document.querySelectorAll(".visuel");
@@ -41,16 +50,17 @@ function imgAdjust(contenant) {
            let elt = elementList[i];
            let imgW = elt.naturalWidth;
            let imgH = elt.naturalHeight;
-           console.log(imgW+"_"+imgH);
            let imgRatio = imgW / imgH;
 
            if(ratio > imgRatio) {
                elt.style.setProperty('height', hauteur + "px");
                elt.style.setProperty('width', 'auto');
+               console.log(hauteur+"_auto");
            }
            else {
                elt.style.setProperty('width', largeur + "px");
                elt.style.setProperty('height', 'auto');
+               console.log("auto_"+largeur);
            }
        }
 }
@@ -73,6 +83,7 @@ function toggleFullScreen(idon,idoff) {
 function checkOrientation() {
     window.addEventListener("orientationchange", function() {
         imgAdjust(".pleinepage");
+        // console.log(window.screen.orientation.angle);
     }, false);
 }
 checkOrientation();

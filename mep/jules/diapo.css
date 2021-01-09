@@ -51,7 +51,7 @@ img {
 /* fullscreen, exit */
 .nav {
     position: absolute;
-    top: 24px; right: 10px;
+    top: 24px; right: 8px;
 }
 #fson  { display: block; cursor: pointer;}
 #fsoff { display: none;  cursor: pointer;}
