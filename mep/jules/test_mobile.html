@@ -29,35 +29,43 @@
     let materiel = isMobileDevice() ? 'mobile' : 'desktop';
     console.log(materiel);
 
-    function checkOrientation() {
-            let largeur = screen.availWidth;
-            let hauteur = screen.availHeight;
-            if(largeur > hauteur) {
-                return (materiel =="mobile") ? "paysage" : "portrait";
+    let angle = window.screen.orientation.angle;
+    let orientation;
+
+    function checkOrientation(etat) {
+            switch(etat) {
+                case 0 : orientation = (materiel == 'mobile') ? 'portrait': 'paysage';
+                    break;
+                case 90 : orientation = (materiel == 'mobile') ? 'paysage': 'portrait';
+                    break;
+                default:
             }
-            else {
-                return (materiel =="mobile") ? "portrait" : "paysage";
-            }
+
+            updateDevice();
     }
-    orientation = checkOrientation();
 
     function checkRotation() {
         window.addEventListener("orientationchange", function() {
             // console.log(window.screen.orientation.angle);
             let orientation, largeur, hauteur;
             if(window.screen.orientation.angle == 0) {
-                console.log("ici");
-                return (materiel == "mobile") ? "portrait" : "paysage";
+                angle = 0;
+                checkOrientation(0);
             }
             else {
-                console.log("la");
-                return (materiel =="mobile") ? "paysage" : "portrait";
+                angle = 90;
+                checkOrientation(90);
             }
-        }, false);
+            updateDevice();
+        });
     }
-    checkRotation();
 
-    document.getElementById("info").innerHTML = materiel+"_"+window.screen.orientation.angle+"_"+orientation;
+    function updateDevice() {
+        document.getElementById("info").innerHTML = materiel+"_"+angle+"_"+orientation;
+    }
+
+    checkOrientation(angle);
+    checkRotation();
 
     </script>
 </body>
