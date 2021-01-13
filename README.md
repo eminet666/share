@@ -26,7 +26,7 @@
 * [oculus](https://eminet666.github.io/share/modelage/index_1_move_oculus.html) |
 [oculus_2](https://eminet666.github.io/share/modelage/index_1_move_oculus_2.html)
 * [dnmade2_boutons](https://eminet666.github.io/share/modelage/dnmade2_boutons_20210113.html) |
-[dnmade2_oculus](https://eminet666.github.io/share/modelage/dnmade2_boutons_20210113.html)
+[dnmade2_oculus](https://eminet666.github.io/share/modelage/dnmade2_oculus_20210113.html)
 
 # autres
 * [duperre](https://www.pierreginer.com/duperre360)
