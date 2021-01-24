@@ -41,7 +41,14 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-    <a-scene renderer="antialias: true" background="color: #5280A7">
+    <a-scene background="color: #5280A7"
+             gltf-model="dracoDecoderPath: ./js/draco/;"
+             renderer="antialias: true"
+             keyboard-shortcuts="enterVR: false;"
+             screen-controls
+             renderer="antialias: true; colorManagement: true;"
+             vr-mode-ui="enabled: true">
+             
         <a-assets>
             <a-asset-item id="obj0" src="./assets/models/venus/venus_0.glb"></a-asset-item>
             <a-asset-item id="obj1" src="./assets/models/venus/venus_1.glb"></a-asset-item>
