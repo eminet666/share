@@ -1,0 +1,69 @@
+<!-- sources 3D models : https://cults3d.com/fr/ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
+
+    <!-- SCRIPTS -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@master/dist/aframe-extras.loaders.min.js"></script> -->
+
+    <style>
+    </style>
+
+    <script>
+
+    </script>
+
+</head>
+
+<body >
+
+        <!-- disable press "F" to enter fullscreen mode. -->
+        <a-scene background="color: #5280A7"
+                 gltf-model="dracoDecoderPath: ./js/draco/;"
+                 keyboard-shortcuts="enterVR: false;"
+                 screen-controls renderer="antialias: true"
+                 vr-mode-ui="enabled: false">
+
+        <a-assets>
+            <a-asset-item id="obj0" src="./assets/models/venus/venus_0.glb"></a-asset-item>
+            <a-asset-item id="obj1" src="./assets/models/venus/venus_1.glb"></a-asset-item>
+            <a-asset-item id="obj2" src="./assets/models/venus/venus_2.glb"></a-asset-item>
+            <a-asset-item id="obj3" src="./assets/models/venus/venus_3.glb"></a-asset-item>
+            <a-asset-item id="obj4" src="./assets/models/venus/venus_4.glb"></a-asset-item>
+            <a-asset-item id="obj5" src="./assets/models/venus/venus_5.glb"></a-asset-item>
+            <a-asset-item id="obj6" src="./assets/models/venus/venus_6.glb"></a-asset-item>
+            <a-asset-item id="obj7" src="./assets/models/venus/venus_7.glb"></a-asset-item>
+
+            <a-mixin id="commun" rotation="0 0 0" scale="1 1 1"></a-mixin>
+        </a-assets>
+
+        <!-- MODELES 3D -->
+        <a-entity gltf-model="#obj0" mixin="commun" position="-1 0 -1"></a-entity>
+        <a-entity gltf-model="#obj1" mixin="commun" position="0 0 -1"></a-entity>
+        <a-entity gltf-model="#obj2" mixin="commun" position="1 0 -1"></a-entity>
+        <a-entity gltf-model="#obj3" mixin="commun" position="1 0 0"></a-entity>
+        <a-entity gltf-model="#obj4" mixin="commun" position="1 0 1"></a-entity>
+        <a-entity gltf-model="#obj5" mixin="commun" position="0 0 1"></a-entity>
+        <a-entity gltf-model="#obj6" mixin="commun" position="-1 0 1"></a-entity>
+        <a-entity gltf-model="#obj7" mixin="commun" position="-1 0 0"></a-entity>
+
+        <a-plane position="0 0 0" rotation="-90 0 0"
+                 width="15" height="15" color="#CCCCCC"
+                 shadow="receive: true" shadow-material="opacite: 0.3">
+        </a-plane>
+        <a-plane position="0 0 0" rotation="-90 0 0"
+                 width="15" height="15" color="#CCCCCC">
+        </a-plane>
+
+    </a-scene>
+
+</body>
+
+</html>
