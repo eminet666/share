@@ -11,8 +11,8 @@
 
     <!-- SCRIPTS -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@master/dist/aframe-extras.loaders.min.js"></script> -->
     <script src="./js/components.js"></script>
     <script src="./js/extended-wasd-controls.js"></script>
 
@@ -164,19 +164,34 @@
         <!-- disable press "F" to enter fullscreen mode. -->
         <a-scene background="color: #5280A7"
                  gltf-model="dracoDecoderPath: ./js/draco/;"
+                 renderer="antialias: true"
                  keyboard-shortcuts="enterVR: false;"
-                 screen-controls renderer="antialias: true"
+                 screen-controls
+                 renderer="antialias: true; colorManagement: true;"
                  vr-mode-ui="enabled: false">
 
-        <a-assets>
-            <a-asset-item id="suzanne" src="./assets/models/suzanne/suzanne_0.glb"></a-asset-item>
-            <a-asset-item id="suzanne1" src="./assets/models/suzanne/suzanne_1.glb"></a-asset-item>
-            <a-asset-item id="suzanne2" src="./assets/models/suzanne/newcube.glb"></a-asset-item>
-            <!-- <a-asset-item id="suzanne3" src="./assets/models/suzanne/suzanne3.glb"></a-asset-item>
-            <a-asset-item id="suzanne4" src="./assets/models/suzanne/suzanne4.glb"></a-asset-item>
-            <a-asset-item id="right" src="./assets/models/suzanne/cubeaframe.glb"></a-asset-item> -->
-            <a-mixin id="commun" model_loaded shadow="cast:true; receive:true"  rotation="0 0 0" scale="1 1 1"></a-mixin>
-        </a-assets>
+                 <a-assets>
+                     <a-asset-item id="obj0" src="./assets/models/venus/venus_0.glb"></a-asset-item>
+                     <a-asset-item id="obj1" src="./assets/models/venus/venus_1.glb"></a-asset-item>
+                     <a-asset-item id="obj2" src="./assets/models/venus/venus_2.glb"></a-asset-item>
+                     <a-asset-item id="obj3" src="./assets/models/venus/venus_3.glb"></a-asset-item>
+                     <a-asset-item id="obj4" src="./assets/models/venus/venus_4.glb"></a-asset-item>
+                     <a-asset-item id="obj5" src="./assets/models/venus/venus_5.glb"></a-asset-item>
+                     <a-asset-item id="obj6" src="./assets/models/venus/venus_6.glb"></a-asset-item>
+                     <a-asset-item id="obj7" src="./assets/models/venus/venus_7.glb"></a-asset-item>
+
+                     <a-mixin id="commun" rotation="0 0 0" scale="1 1 1"></a-mixin>
+                 </a-assets>
+
+                 <!-- MODELES 3D -->
+                 <a-entity gltf-model="#obj0" mixin="commun" position="-1 0 -1"></a-entity>
+                 <a-entity gltf-model="#obj1" mixin="commun" position="0 0 -1"></a-entity>
+                 <a-entity gltf-model="#obj2" mixin="commun" position="1 0 -1"></a-entity>
+                 <a-entity gltf-model="#obj3" mixin="commun" position="1 0 0"></a-entity>
+                 <a-entity gltf-model="#obj4" mixin="commun" position="1 0 1"></a-entity>
+                 <a-entity gltf-model="#obj5" mixin="commun" position="0 0 1"></a-entity>
+                 <a-entity gltf-model="#obj6" mixin="commun" position="-1 0 1"></a-entity>
+                 <a-entity gltf-model="#obj7" mixin="commun" position="-1 0 0"></a-entity>
 
         <!-- adding in look controls; automatically sets turnEnabled/lookEnabled to false  -->
         <a-entity id="camera" camera look-controls
@@ -187,17 +202,6 @@
                 </a-entity> -->
         </a-entity>
 
-        <!-- ECLAIRAGES -->
-        <!-- <a-entity light="type: ambient; color: #CCC; intensity: 1"></a-entity>
-        <a-entity light="type: directional; castShadow:true; intensity: 0.5" position="-1 2 1"></a-entity> -->
-
-        <!-- MODELES 3D -->
-        <a-entity  id ="suzanne" gltf-model="#suzanne" mixin="commun" position="0 0 -3"></a-entity>
-        <a-entity  id ="suzanne1" gltf-model="#suzanne1" mixin="commun" position="1.5 0 -3"></a-entity>
-        <a-entity  id ="suzanne2" gltf-model="#suzanne2" mixin="commun" position="-1.5 0 -3"></a-entity>
-        <!-- <a-entity  id ="suzanne3" gltf-model="#suzanne3" mixin="commun" position="0 1.5 -3"></a-entity>
-        <a-entity  id ="suzanne4" gltf-model="#suzanne4" mixin="commun" position="1.5 1.5 -3"></a-entity>
-        <a-entity  id ="right" gltf-model="#right" mixin="commun" position="1.5 1.5 -2"></a-entity> -->
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="15" height="15" color="#CCCCCC"
                  shadow="receive: true" shadow-material="opacite: 0.3">

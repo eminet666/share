@@ -21,14 +21,30 @@
 * [tutu](https://eminet666.github.io/share/mep/jules/tutu.html)
 
 # modelage
+### mobile
 * [mobile](https://eminet666.github.io/share/modelage/index_boutons.html) |
 [mobile_2](https://eminet666.github.io/share/modelage/index_boutons_2.html)
+
+
+### test move
 * [oculus](https://eminet666.github.io/share/modelage/index_1_move_oculus.html) |
 [oculus_2](https://eminet666.github.io/share/modelage/index_1_move_oculus_2.html)
-* [dnmade2_boutons](https://eminet666.github.io/share/modelage/dnmade2_boutons_20210113.html) |
-[dnmade2_oculus](https://eminet666.github.io/share/modelage/dnmade2_oculus_20210113.html)
-* [test suzanne](https://eminet666.github.io/share/modelage/test_suzanne.html) |
-[test vénus](https://eminet666.github.io/share/modelage/test_venus.html)
+
+### DNMADE2
+* [boutons](https://eminet666.github.io/share/modelage/dnmade2_boutons_20210113.html) |
+[oculus](https://eminet666.github.io/share/modelage/dnmade2_oculus_20210113.html)
+
+### Suzanne
+* [test](https://eminet666.github.io/share/modelage/suzanne_test.html) |
+[boutons](https://eminet666.github.io/share/modelage/suzanne_boutons.html) |
+[oculus](https://eminet666.github.io/share/modelage/suzanne_oculus.html) |
+[oculus shadow](https://eminet666.github.io/share/modelage/suzanne_oculus_shadow.html)
+
+### Vénus
+* [test](https://eminet666.github.io/share/modelage/venus_test.html) |
+[boutons](https://eminet666.github.io/share/modelage/venus_boutons.html) |
+[oculus](https://eminet666.github.io/share/modelage/venus_oculus.html) |
+[oculus shadow](https://eminet666.github.io/share/modelage/venus_oculus_shadow.html)
 
 
 # autres
