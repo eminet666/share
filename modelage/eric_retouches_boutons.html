@@ -183,8 +183,9 @@
             <a-asset-item id="loupmaj" src="./assets/models/eric/loup_imgupdate.glb"></a-asset-item>
             <a-asset-item id="loupcolref" src="./assets/models/eric/loup_colorref.glb"></a-asset-item>
             <a-asset-item id="loupcolmaj" src="./assets/models/eric/loup_colormaj.glb"></a-asset-item>
+            <a-asset-item id="pinup" src="./assets/models/eric/pinup.glb"></a-asset-item>
 
-            <a-mixin id="commun" model_loaded></a-mixin>
+            <a-mixin id="commun" model_loaded rotation="0 180 0" scale="1 1 1"></a-mixin>
             <a-mixin id="loup" model_loaded rotation="0 90 0" scale="10 10 10"></a-mixin>
         </a-assets>
 
@@ -214,7 +215,8 @@
         <a-entity  id ="imgref" gltf-model="#loupref" mixin="loup" position="0 0 -3"></a-entity>
         <a-entity  id ="imgmaj" gltf-model="#loupmaj" mixin="loup" position="3 0 -3"></a-entity>
         <a-entity  id ="colorref" gltf-model="#loupcolref" mixin="loup" position="-3 0 -3"></a-entity>
-        <a-entity  id ="colormaj" gltf-model="#loupcolmaj" mixin="loup" position="-3 0 0"></a-entity>        
+        <a-entity  id ="colormaj" gltf-model="#loupcolmaj" mixin="loup" position="-3 0 0"></a-entity>
+        <a-entity  id ="fille" gltf-model="#pinup" mixin="commun" position="0 0 1"></a-entity>
         <!-- <a-entity  id ="test4" gltf-model="#model4" mixin="commun"
                    position="-2 0 -3" rotation="0 0 0" scale="15 15 15">
         </a-entity> -->
