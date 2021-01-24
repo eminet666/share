@@ -1,0 +1,115 @@
+<!-- sources 3D models : https://cults3d.com/fr/ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/jpg" href="./favicon-32x32.png">
+    <!-- SCRIPTS -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@master/dist/aframe-extras.loaders.min.js"></script> -->
+    <script src="./js/components.js"></script>
+
+    <script>
+    AFRAME.registerComponent('gauche', {
+        init: function()
+        {
+            const utilisateur = document.querySelector('#utilisateur');
+
+            this.el.addEventListener("thumbstickmoved", function(event)	{
+                utilisateur.object3D.position.z -= event.detail.y/20;
+                utilisateur.object3D.position.x -= event.detail.x/20;
+            });
+        }
+    });
+    AFRAME.registerComponent('droite', {
+        init: function()
+        {
+            const utilisateur = document.querySelector('#utilisateur');
+
+            this.el.addEventListener("thumbstickmoved", function(event)	{
+                utilisateur.object3D.rotation.y += event.detail.y/20;
+            });
+        }
+    });
+    </script>
+
+</head>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+    <a-scene background="color: #5280A7"
+             gltf-model="dracoDecoderPath: ./js/draco/;"
+             renderer="antialias: true"
+             keyboard-shortcuts="enterVR: false;"
+             screen-controls
+             renderer="antialias: true; colorManagement: true;"
+             vr-mode-ui="enabled: true">
+
+             <a-assets>
+                 <!-- <a-asset-item id="model" src="./assets/models/eric/artemis_draco_base.glb"></a-asset-item>
+                 <a-asset-item id="model2" src="./assets/models/eric/artemis_draco_modifiers.glb"></a-asset-item>
+                 <a-asset-item id="model3" src="./assets/models/eric/artemis_draco_remsub.glb"></a-asset-item> -->
+                 <!-- <a-asset-item id="model" src="./assets/models/eric/marbre.glb"></a-asset-item>
+                 <a-asset-item id="model2" src="./assets/models/eric/terracotta.glb"></a-asset-item>
+                 <a-asset-item id="model3" src="./assets/models/eric/oeilvert.glb"></a-asset-item>
+                 <a-asset-item id="model4" src="./assets/models/eric/vertexpaint.glb"></a-asset-item>
+                 <a-asset-item id="model5" src="./assets/models/eric/fourrure.glb"></a-asset-item>
+                 <a-asset-item id="model6" src="./assets/models/eric/emissive.glb"></a-asset-item> -->
+                 <a-asset-item id="loupref" src="./assets/models/eric/loup_imgref.glb"></a-asset-item>
+                 <a-asset-item id="loupmaj" src="./assets/models/eric/loup_imgupdate.glb"></a-asset-item>
+                 <a-asset-item id="loupcolref" src="./assets/models/eric/loup_colorref.glb"></a-asset-item>
+                 <a-asset-item id="loupcolmaj" src="./assets/models/eric/loup_colormaj.glb"></a-asset-item>
+
+                 <a-mixin id="commun" model_loaded></a-mixin>
+                 <a-mixin id="loup" model_loaded rotation="0 90 0" scale="10 10 10"></a-mixin>
+             </a-assets>
+
+        <a-entity id="utilisateur" position="0 0 0" movement-controls>
+            <a-entity camera position="0 1.7 1" look-controls></a-entity>
+            <a-entity oculus-touch-controls="hand: left" gauche></a-entity>
+            <a-entity oculus-touch-controls="hand: right" droite></a-entity>
+            </a-entity>
+        </a-entity>
+
+        <!-- ECLAIRAGES -->
+        <!-- <a-entity light="type: ambient; color: #FFF; intensity: 1"></a-entity>
+        <a-entity light="type: directional; castShadow:true; intensity: 1" position="0 1.5 -1"></a-entity> -->
+
+        <!-- MODELES 3D -->
+        <!-- <a-entity  id ="test" gltf-model="#model" mixin="commun"
+                   position="0 0 -3" rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+        <a-entity  id ="test2" gltf-model="#model2" mixin="commun"
+                   position="2 0 -3" rotation="0 0 0" scale="1 1 1">
+        </a-entity>
+        <a-entity  id ="test3" gltf-model="#model3" mixin="commun"
+                   position="-2 0 -3" rotation="0 0 0" scale="1 1 1">
+        </a-entity> -->
+        <a-entity  id ="imgref" gltf-model="#loupref" mixin="loup" position="0 0 -3"></a-entity>
+        <a-entity  id ="imgmaj" gltf-model="#loupmaj" mixin="loup" position="3 0 -3"></a-entity>
+        <a-entity  id ="colorref" gltf-model="#loupcolref" mixin="loup" position="-3 0 -3"></a-entity>
+        <a-entity  id ="colormaj" gltf-model="#loupcolmaj" mixin="loup" position="-3 0 0"></a-entity>
+        <!-- <a-entity  id ="test4" gltf-model="#model4" mixin="commun"
+                   position="-2 0 -3" rotation="0 0 0" scale="15 15 15">
+        </a-entity> -->
+        <!-- <a-entity  id ="test3_2" gltf-model="#model3_2" mixin="commun"
+                   position="-2 -2.5 -3" rotation="0 -90 0" scale="15 15 15">
+        </a-entity> -->
+
+        <a-plane position="0 0 0" rotation="-90 0 0"
+                 width="15" height="15" color="#CCCCCC"
+                 shadow="receive: true" shadow-material="opacite: 0.3">
+        </a-plane>
+        <a-plane position="0 0 0" rotation="-90 0 0"
+                 width="15" height="15" color="#CCCCCC">
+        </a-plane>
+
+    </a-scene>
+
+</body>
+
+</html>
