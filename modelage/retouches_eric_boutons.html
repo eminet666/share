@@ -172,21 +172,16 @@
         <a-assets>
             <!-- <a-asset-item id="model" src="./assets/models/eric/artemis_draco_base.glb"></a-asset-item>
             <a-asset-item id="model2" src="./assets/models/eric/artemis_draco_modifiers.glb"></a-asset-item>
-            <a-asset-item id="model3" src="./assets/models/eric/artemis_draco_remsub.glb"></a-asset-item> -->
-            <!-- <a-asset-item id="model" src="./assets/models/eric/marbre.glb"></a-asset-item>
+            <a-asset-item id="model3" src="./assets/models/eric/artemis_draco_remsub.glb"></a-asset-item> --> -->
+            <a-asset-item id="model1" src="./assets/models/eric/marbre.glb"></a-asset-item>
             <a-asset-item id="model2" src="./assets/models/eric/terracotta.glb"></a-asset-item>
             <a-asset-item id="model3" src="./assets/models/eric/oeilvert.glb"></a-asset-item>
             <a-asset-item id="model4" src="./assets/models/eric/vertexpaint.glb"></a-asset-item>
             <a-asset-item id="model5" src="./assets/models/eric/fourrure.glb"></a-asset-item>
-            <a-asset-item id="model6" src="./assets/models/eric/emissive.glb"></a-asset-item> -->
-            <a-asset-item id="loupref" src="./assets/models/eric/loup_imgref.glb"></a-asset-item>
-            <a-asset-item id="loupmaj" src="./assets/models/eric/loup_imgupdate.glb"></a-asset-item>
-            <a-asset-item id="loupcolref" src="./assets/models/eric/loup_colorref.glb"></a-asset-item>
-            <a-asset-item id="loupcolmaj" src="./assets/models/eric/loup_colormaj.glb"></a-asset-item>
-            <a-asset-item id="pinup" src="./assets/models/eric/pinup.glb"></a-asset-item>
+            <a-asset-item id="model6" src="./assets/models/eric/emissive.glb"></a-asset-item>
 
-            <a-mixin id="commun" shadow="cast:true; receive:true" model_loaded rotation="0 180 0" scale="1 1 1"></a-mixin>
-            <a-mixin id="loup" model_loaded rotation="0 90 0" scale="10 10 10"></a-mixin>
+            <a-mixin id="face" model_loaded rotation="0 0 0" scale="15 15 15"></a-mixin>
+            <a-mixin id="dos" model_loaded rotation="0 180 0" scale="15 15 15"></a-mixin>
         </a-assets>
 
         <!-- adding in look controls; automatically sets turnEnabled/lookEnabled to false  -->
@@ -203,26 +198,13 @@
         <a-entity light="type: directional; castShadow:true; intensity: 0.5" position="-1 2 1"></a-entity> -->
 
         <!-- MODELES 3D -->
-        <!-- <a-entity  id ="test" gltf-model="#model" mixin="commun"
-                   position="0 0 -3" rotation="0 0 0" scale="1 1 1">
-        </a-entity>
-        <a-entity  id ="test2" gltf-model="#model2" mixin="commun"
-                   position="2 0 -3" rotation="0 0 0" scale="1 1 1">
-        </a-entity>
-        <a-entity  id ="test3" gltf-model="#model3" mixin="commun"
-                   position="-2 0 -3" rotation="0 0 0" scale="1 1 1">
-        </a-entity> -->
-        <a-entity  id ="imgref" gltf-model="#loupref" mixin="loup" position="0 0 -3"></a-entity>
-        <a-entity  id ="imgmaj" gltf-model="#loupmaj" mixin="loup" position="3 0 -3"></a-entity>
-        <a-entity  id ="colorref" gltf-model="#loupcolref" mixin="loup" position="-3 0 -3"></a-entity>
-        <a-entity  id ="colormaj" gltf-model="#loupcolmaj" mixin="loup" position="-3 0 0"></a-entity>
-        <a-entity  id ="fille" gltf-model="#pinup" mixin="commun" position="0 0 1"></a-entity>
-        <!-- <a-entity  id ="test4" gltf-model="#model4" mixin="commun"
-                   position="-2 0 -3" rotation="0 0 0" scale="15 15 15">
-        </a-entity> -->
-        <!-- <a-entity  id ="test3_2" gltf-model="#model3_2" mixin="commun"
-                   position="-2 -2.5 -3" rotation="0 -90 0" scale="15 15 15">
-        </a-entity> -->
+        <a-entity  id ="test1" gltf-model="#model1" mixin="face" position="0 0 -3"></a-entity>
+        <a-entity  id ="test2" gltf-model="#model2" mixin="face" position="2 0 -3"></a-entity>
+        <a-entity  id ="test3" gltf-model="#model3" mixin="face" position="-2 0 -3"></a-entity>
+
+        <a-entity  id ="test4" gltf-model="#model4" mixin="dos" position="0 0 3"></a-entity>
+        <a-entity  id ="test5" gltf-model="#model5" mixin="dos" position="2 0 3"></a-entity>
+        <a-entity  id ="test6" gltf-model="#model6" mixin="dos" position="-2 0 3"></a-entity>
 
         <a-plane position="0 0 0" rotation="-90 0 0"
                  width="15" height="15" color="#CCCCCC"
