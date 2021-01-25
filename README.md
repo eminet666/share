@@ -32,7 +32,9 @@
 
 ### DNMADE2
 * [boutons](https://eminet666.github.io/share/modelage/dnmade2_boutons_20210113.html) |
-[oculus](https://eminet666.github.io/share/modelage/dnmade2_oculus_20210113.html)
+[oculus](https://eminet666.github.io/share/modelage/dnmade2_oculus_20210113.html) |
+[retouche oculus](https://eminet666.github.io/share/modelage/eric_retouches_oculus.html) |
+[retouche boutons](https://eminet666.github.io/share/modelage/eric_retouches_boutons.html) |
 
 ### Suzanne
 * [test](https://eminet666.github.io/share/modelage/suzanne_test.html) |
