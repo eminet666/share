@@ -53,4 +53,3 @@
 * [pinup oculus](https://eminet666.github.io/share/modelage/pinup_oculus.html) | [pinup mobile](https://eminet666.github.io/share/modelage/pinup_oculus.html)
 ### test mobile touch events
 * [test1](https://eminet666.github.io/share/mobile/AR_0_base.html)
-* [transparence AR](https://eminet666.github.io/eminet_AR/x_tests/5_transparence/AR_0_base.html)
