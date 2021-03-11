@@ -3,7 +3,7 @@
 * [Marion](https://maionaiiise.github.io/maionaiiise_VR/14_sirtaki-final-test/index.html)
 * [Hugo](https://honuh.github.io/houdot_VR/SIRTAKI/index.html)
 * [Louane](https://louane2308.github.io/lavranche_VR)
-* [Tom]()
+* [Tom](https://louane2308.github.io/lavranche_VR)
 * [Côme](https://come31.github.io/come_VR/index.html)
 * [Loic](https://loacp.github.io/Loac_VR/City.html)
 * [Laurine](https://orleanne.github.io/laurine_VR/index.html)
