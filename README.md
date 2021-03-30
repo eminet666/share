@@ -1,8 +1,8 @@
 # share
 
 # 2021
-[DNMADE3](https://eminet666.github.io/share/2021/dnmade3/)
-[DNMADE2](https://eminet666.github.io/share/2021/dnmade2/)
+* [DNMADE3](https://eminet666.github.io/share/2021/dnmade3/)
+* [DNMADE2](https://eminet666.github.io/share/2021/dnmade2/)
 
 # birthdaycolor
 * [get your birthday color](https://eminet666.github.io/share/birthdaycolor/getbirthdaycolor.html)
