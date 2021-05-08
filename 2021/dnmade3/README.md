@@ -1,5 +1,6 @@
-# sirtaki
+# 2021 DNMADE3
 
+## sirtaki
 * [Marion](https://maionaiiise.github.io/maionaiiise_VR/14_sirtaki-final-test/index.html)
 * [Hugo](https://honuh.github.io/houdot_VR/SIRTAKI/index.html)
 * [Louane](https://louane2308.github.io/lavranche_VR)
@@ -16,10 +17,10 @@
 * [Génia](https://geniakim.github.io/Genia_VR/index.html)
 * [Jasmine](https://njasmine98.github.io/sirtaki_projet/)
 
-# tests
-## Hugo
+## tests
+### Hugo
 * [Hugo gerbotron](https://honuh.github.io/houdot_VR/projet_pro_experimentations/)
 * [20210408](https://honuh.github.io/houdot_VR/projet_pro_experimentations/fog/fog_black_to_img_metro.html)
 
-## Léo 
+### Léo 
 * [20210408](https://tempuraleo.github.io/galaxie_leo-master/experience2/index.html)
